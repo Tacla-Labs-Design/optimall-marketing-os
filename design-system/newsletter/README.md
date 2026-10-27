@@ -4,7 +4,7 @@ O sistema visual das newsletters e e-mails do Optimall.
 
 ```
 tokens.md        Cor, tipografia, espaçamento, dark mode, tamanhos de imagem
-components/      Os 20 blocos de HTML de e-mail + o botão VML
+components/      Os 21 blocos de HTML de e-mail (com a moldura de conteúdo) + o botão VML
 guidelines/
   ├── email-compat.md   Regras técnicas de HTML de e-mail (não negociáveis)
   ├── layout-ritmo.md   Hierarquia, ritmo da peça, limites de CTA e de seções

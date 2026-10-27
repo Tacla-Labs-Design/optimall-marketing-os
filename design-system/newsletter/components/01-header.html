@@ -1,29 +1,39 @@
 <!-- ============================================================================
-     01 · HEADER — obrigatório em toda peça. Logo do Optimall centralizado numa placa
-     branca de raio 20px. Padding interno 32px 28px.
+     01 · HEADER — obrigatório em toda peça. Um card de raio 20px: no topo, a faixa roxa da
+     marca (#9934FF) com o logo branco centralizado; logo abaixo, a imagem de abertura da
+     peça, colada na faixa e nas bordas do card, sem espaço entre as duas.
 
-     Logo: versão positiva (tricolor, para fundo claro), em PNG porque SVG não renderiza
-     em e-mail. Exibido a 143x24 (arquivo 2x, brand/assets/header/logo-optimall.png).
-     O caminho relativo vale a partir de saida/<slug>/index.html; na entrega, o logo é um
-     dos arquivos a hospedar.
+     Logo: branco oficial, em PNG porque SVG não renderiza em e-mail. Exibido a 143x24
+     (arquivo 2x, brand/assets/header/logo-optimall-branco.png). O caminho relativo vale a
+     partir de saida/<slug>/index.html; na entrega, o logo é um dos arquivos a hospedar.
 
-     A placa fica branca também no dark mode, sem classe dm-*: assim o logo colorido fica
-     legível em todo cliente, sem depender de troca de imagem por CSS, que falha no Gmail e
-     no Outlook (guidelines/email-compat.md).
+     Imagem de abertura: a `capa` do briefing, 536 de largura, 16:9 ou mais panorâmica
+     (exportar com no mínimo 1072px de largura). Sem raio em cima, raio de 20px embaixo,
+     fechando o card. Peça sem imagem de abertura: apagar a linha IMAGEM inteira e trocar o
+     raio da faixa para "20px" nos quatro cantos.
+
+     A faixa roxa não muda no dark mode, sem classe dm-*: branco sobre o roxo funciona nos
+     dois modos, sem depender de troca de imagem por CSS.
      ============================================================================ -->
 <tr>
   <td class="p-mobile" style="padding:28px 32px 24px 32px;">
-    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#FFFFFF" style="width:100%;background-color:#FFFFFF;border-radius:20px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-radius:20px;">
       <tr>
-        <td align="center" valign="middle" style="padding:32px 28px;">
+        <td align="center" valign="middle" bgcolor="#9934FF" style="padding:28px 28px;background-color:#9934FF;border-radius:20px 20px 0 0;">
           <!-- Tabela interna centralizada: <img> com display:block não obedece ao align do <td>. -->
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
             <tr>
               <td align="center">
-                <a href="https://www.optimall.com.br" target="_blank"><img src="../../brand/assets/header/logo-optimall.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /></a>
+                <a href="https://www.optimall.com.br" target="_blank"><img src="../../brand/assets/header/logo-optimall-branco.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /></a>
               </td>
             </tr>
           </table>
+        </td>
+      </tr>
+      <!-- IMAGEM de abertura — colada no logo e nas bordas do card -->
+      <tr>
+        <td align="center" style="padding:0;font-size:0;line-height:0;">
+          <img src="{{URL_IMAGEM_ABERTURA}}" width="536" alt="{{ALT_IMAGEM_ABERTURA}}" style="display:block;border:0;outline:none;text-decoration:none;width:100%;max-width:536px;height:auto;border-radius:0 0 20px 20px;" />
         </td>
       </tr>
     </table>

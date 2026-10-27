@@ -8,11 +8,12 @@ A numeração é a ordem em que os blocos costumam aparecer na peça.
 
 | Arquivo | O que é |
 |---|---|
-| `01-header.html` | Header: logo do Optimall centralizado numa placa branca |
+| `00-moldura-conteudo.html` | Card branco que envolve todos os blocos de conteúdo (partes ABRE e FECHA) |
+| `01-header.html` | Header: faixa roxa com o logo branco e, colada nela, a imagem de abertura, num card só |
 | `02-hero-title.html` | Headline de abertura |
 | `02a-eyebrow.html` | Tag / eyebrow acima de um título |
 | `02b-titulo-secao.html` | Título de seção |
-| `03-hero-image.html` | Imagem de abertura, largura inteira |
+| `03-hero-image.html` | Imagem em largura inteira no meio do conteúdo (a de abertura vai no `01-header`) |
 | `04-texto-cta.html` | Bloco de texto com CTA |
 | `05-card-quote.html` | Citação |
 | `06-card-oferta.html` | Card de oferta |
@@ -30,15 +31,22 @@ A numeração é a ordem em que os blocos costumam aparecer na peça.
 | `99-spacer.html` | Espaçador vertical |
 | `_button.html` | CTA no padrão VML (`<v:roundrect>` + `<a>`). Variante A roxa, B neutra escura |
 
-Obrigatórios em toda peça: `01-header`, `90-social` e `91-footer-legal`.
+Obrigatórios em toda peça: `01-header`, `00-moldura-conteudo` (envolvendo o conteúdo),
+`90-social` e `91-footer-legal`.
+
+O desenho da peça é sempre o mesmo: **card do header** (faixa roxa com o logo branco + imagem
+de abertura, sem espaço entre elas) → **card de conteúdo** (do título ao último bloco) → **rodapé solto** sobre o fundo
+lavanda.
 Entre blocos, usar `99-spacer`.
 
 ---
 
 ## Header e rodapé
 
-- O **header** é uma placa branca com o logo positivo (tricolor) em PNG, 143 × 24. A placa
-  **não escurece** no dark mode: ela garante o logo colorido legível em todo cliente, sem
+- O **header** é um card com a faixa roxa da marca (`#9934FF`) e o logo branco oficial em PNG,
+  143 × 24, no topo, e a imagem de abertura colada embaixo, nas bordas do card, com raio só nos
+  cantos de baixo. Sem imagem de abertura, o card fica só com a faixa. A faixa **não muda** no
+  dark mode: branco sobre roxo funciona nos dois modos, ela garante o logo colorido legível em todo cliente, sem
   depender de troca de imagem por CSS (`guidelines/email-compat.md`).
 - O **rodapé social** leva o mesmo logo — e, no modo escuro, troca pelo logo branco oficial
   onde o cliente permite (Apple Mail, iOS, Outlook.com); no resto, fica o colorido e só as redes oficiais: Instagram e LinkedIn

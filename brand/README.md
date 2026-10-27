@@ -102,7 +102,7 @@ a palavra *optimall*. As versões oficiais vêm do Figma *[BRAND] Optimall – I
 | `logo-optimall-branco.svg` | Branco, monocromático (a sobreposição do símbolo em transparência) | Fundo roxo (deck, post) ou escuro (e-mail no modo escuro), foto |
 | `logo-optimall-preto.svg` | Preto, monocromático | Impressão a uma cor, fundo claro sem cor |
 | `simbolo-optimall.svg` | Só o símbolo, colorido | Selo pequeno, avatar, favicon |
-| `logo-optimall.png`, `-branco.png`, `-preto.png` | As três versões oficiais em 2x, transparentes (286×48, exibidas a 143×24) | E-mail (`01-header` e `90-social` usam o colorido) |
+| `logo-optimall.png`, `-branco.png`, `-preto.png` | As três versões oficiais em 2x, transparentes (286×48, exibidas a 143×24) | E-mail: `01-header` usa o branco sobre a faixa roxa; `90-social`, o colorido (e o branco no modo escuro) |
 
 O logo **não é monocromático**: não se pinta por `currentColor`, não se troca cor por
 `filter`, não se redesenha. Usa-se a versão certa para o fundo. No deck e no post ele entra

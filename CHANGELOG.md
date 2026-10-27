@@ -10,6 +10,30 @@ entra sozinho na próxima peça.
 
 ---
 
+## 2026-10-27 — E-mail: logo e imagem de abertura num card só, conteúdo num card
+
+O desenho do e-mail ficou fixo em três partes, a pedido do maintainer na revisão da primeira
+peça: o **card do header** (faixa roxa com o logo branco e a imagem de abertura colada nela), o
+**card de conteúdo** (do título ao último bloco) e o **rodapé solto** sobre o fundo lavanda.
+
+### Mudado
+
+- `01-header`: faixa roxa da marca (`#9934FF`) com o logo **branco** oficial no topo e, colada
+  nela, a imagem de abertura (`capa` do briefing), nas bordas do card, com raio só nos cantos
+  de baixo. Sem imagem de abertura, o card fica só com a faixa. A faixa não muda no dark mode.
+- `03-hero-image` deixa de ser a abertura da peça: serve para imagem em largura inteira no
+  meio do conteúdo.
+
+### Novo
+
+- `00-moldura-conteudo`: o card branco (escuro no dark mode) que envolve todos os blocos de
+  conteúdo, com as partes ABRE e FECHA. Obrigatório.
+
+**Ação necessária:** e-mail montado antes disto, se ainda não saiu, ganha o novo header e a
+moldura de conteúdo.
+
+---
+
 ## 2026-10-27 — Repositório próprio do Optimall
 
 O Optimall passa a ter um Marketing OS só dele: identidade, design system, templates e skills

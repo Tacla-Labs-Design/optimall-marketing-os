@@ -32,11 +32,11 @@
 
 ## Dark mode
 - [ ] Testado em Apple Mail dark e Outlook.com dark
-- [ ] Logo legível sobre fundo escuro (a placa do header continua branca)
+- [ ] Logo legível nos dois modos (header: logo branco sobre a faixa roxa, que não muda)
 - [ ] Nenhum texto escuro sobre fundo escuro
 
 ## Marca
-- [ ] Header `01-header` e rodapé social `90-social` com o logo e as redes do Optimall
+- [ ] Header `01-header` com a faixa roxa, o logo branco e a imagem de abertura colada nela, conteúdo dentro da `00-moldura-conteudo`, rodapé social `90-social` fora dos cards, com o logo e as redes do Optimall
 - [ ] Texto B2B, de `brand/mensagens.md`: fala com o gestor do shopping, números só os
       oficiais, CTA *Fale com um consultor*; sempre "o Optimall", nunca "a Optimall"
 - [ ] Nada do Podi nem da Tacla Labs — nem no texto, nem no `alt`, nem em imagem

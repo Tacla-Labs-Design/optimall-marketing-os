@@ -66,7 +66,7 @@ O nome do arquivo carrega a intenção (ver `docs/como-enviar-conteudo.md`):
 
 | Nome | Significado | Componente |
 |---|---|---|
-| `capa.*` | Abertura da edição | `03-hero-image` |
+| `capa.*` | Abertura da edição | a imagem do `01-header`, colada na faixa do logo |
 | `NN-nome.*` | Notícia NN, imagem no topo em largura inteira | `11-card-noticia` |
 | `NN-nome-1x1.*` | Notícia NN, imagem ao lado do texto | `07-artigos-alternados` ou `12-card-noticia-compacta` |
 
@@ -102,8 +102,10 @@ Formato fora de JPG/PNG (WebP, AVIF, HEIC, SVG) é bloqueio: converter com
    **Nenhuma peça leva link de descadastro**
    (`design-system/newsletter/guidelines/variaveis-envio.md`).
 2. Copiar `templates/newsletter/base.html` para **`saida/<slug>/index.html`** e colar os
-   blocos de `design-system/newsletter/components/` no lugar marcado: `01-header` → blocos
-   de conteúdo (`02` a `13b`) → `90-social` → `91-footer-legal`. Trocar o
+   blocos de `design-system/newsletter/components/` no lugar marcado: `01-header` (faixa roxa
+   com o logo branco e a `capa` colada nela, no mesmo card) → `00-moldura-conteudo` ABRE → blocos de conteúdo
+   (`02` a `13b`) → `00-moldura-conteudo` FECHA → `90-social` → `91-footer-legal`. O rodapé
+   fica fora dos cards. Trocar o
    `{{TITULO_INTERNO}}` e o `{{PREHEADER}}` do template (preheader que o briefing não trouxer,
    escrever a partir da chamada, 60–90 caracteres). Os comentários dos blocos podem ficar — o
    `conferir` não os lê. **Nunca apagar** os condicionais do Outlook (`<!--[if mso]>`,
