@@ -76,8 +76,10 @@ docs/
 
 scripts/check-atualizacao.sh             Verifica/atualiza a cópia local do padrão
 scripts/publicar                         Publica a marca no hub de marcas (só maintainer)
+scripts/logo-pack                        Gera o logo pack (pasta + .zip) em saida/_logo-pack/; o publicar envia
 
 hub/BRAND.md, hub/guias/, hub/modelos/   A marca no hub: regras curtas, um guia por peça, modelos com data-slot
+hub/logo-pack.html                       Página de diretrizes do logo pack (vira optimall/guia/index.html no hub)
 scripts/conferir.py                      Confere a peça montada (paleta, sobras, variáveis) e a marca
 scripts/exportar.py                      PNG de post e PDF de deck pelo Chrome; confere a fonte antes
 

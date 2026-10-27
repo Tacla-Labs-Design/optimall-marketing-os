@@ -164,6 +164,7 @@ aponte para o `CLAUDE.md` e para o `SKILL.md` do material.
 ## Referência rápida
 
 - **A marca:** [`brand/README.md`](brand/README.md) · [mensagens](brand/mensagens.md) · [links oficiais](brand/links-oficiais.md)
+- **Logo pack e guia visual:** logo, símbolo e assinatura em SVG e PNG, com as regras de uso, em [marcas.taclalabs.workers.dev/optimall/guia/](https://marcas.taclalabs.workers.dev/optimall/guia/) (botão para baixar o .zip)
 - **Newsletter:** [`design-system/newsletter/README.md`](design-system/newsletter/README.md) · [componentes](design-system/newsletter/components/README.md)
 - **Apresentação:** [`design-system/apresentacao/README.md`](design-system/apresentacao/README.md)
 - **Post:** [`design-system/post/README.md`](design-system/post/README.md)

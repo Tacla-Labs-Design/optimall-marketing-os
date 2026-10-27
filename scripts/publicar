@@ -11,6 +11,9 @@ O que vai:
   optimall/assinatura/   "Uma solução Optimall" (SVG + PNG de 600 e 1200 px) — as chaves que o
                          Byfrost usa não mudam
   optimall/arquivos/     só as imagens que os modelos citam, por nome, de brand/assets/
+  optimall/guia/         o logo pack aberto: a página de diretrizes (guia/index.html, fonte em
+                         hub/logo-pack.html) e os arquivos dela, gerados por scripts/logo-pack
+  optimall/optimall-logo-pack.zip   o mesmo pack em zip (o botão de download da página)
 
 Nunca vão: brand/assets/produto/ (telas) e brand/assets/fotos/ (banco de imagem). Modelo que
 citar uma delas, ou qualquer endereço do hub que não esteja na pasta montada, para a publicação.
@@ -82,9 +85,14 @@ def png(svg, destino, largura):
         pagina = Path(tmp) / "r.html"
         pagina.write_text(f"<html><body style='margin:0'><img src='file://{svg}' "
                           f"style='display:block;width:{largura}px;height:{altura}px'></body></html>")
+        # Perfil próprio por chamada: não disputa o perfil do Chrome aberto (e permite rodar em
+        # paralelo). DEVNULL, não capture_output: o chrome_crashpad_handler pode sobreviver ao
+        # Chrome segurando o pipe, e aí o run() espera para sempre.
         subprocess.run([CHROME, "--headless", "--hide-scrollbars", "--default-background-color=00000000",
+                        f"--user-data-dir={tmp}/perfil", "--no-first-run",
                         "--force-device-scale-factor=1", f"--window-size={largura},{altura}",
-                        f"--screenshot={destino}", f"file://{pagina}"], capture_output=True, check=True)
+                        f"--screenshot={destino}", f"file://{pagina}"],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
 
 def montar(saida):
@@ -123,6 +131,16 @@ def montar(saida):
             png(svg, saida / f"{MARCA}/assinatura/{nome}-{w}.png", w)
             assinatura[cor][f"png_{w}"] = f"{MARCA}/assinatura/{nome}-{w}.png"
 
+    # Logo pack: a pasta inteira em optimall/guia/ (a página é guia/index.html) e o zip.
+    with tempfile.TemporaryDirectory() as tmp:
+        subprocess.run([sys.executable, "-I", str(RAIZ / "scripts/logo-pack"), "--saida", tmp],
+                       stdout=subprocess.DEVNULL, check=True)
+        pack = Path(tmp) / f"{MARCA}-logo-pack"
+        for f in sorted(pack.rglob("*")):
+            if f.is_file():
+                copiar(f, f"{MARCA}/guia/{f.relative_to(pack).as_posix()}")
+        logo_pack = copiar(Path(tmp) / f"{MARCA}-logo-pack.zip", f"{MARCA}/{MARCA}-logo-pack.zip")
+
     # Imagens que os modelos citam em optimall/arquivos/<nome>: só as públicas.
     textos = [p for p in saida.rglob("*") if p.suffix in (".md", ".html")]
     pedidos = set()
@@ -152,8 +170,9 @@ def montar(saida):
         "status": "ativa",
         "fonte": "optimall-marketing-os (Tacla-Labs-Design/optimall-marketing-os), scripts/publicar",
         "regras": f"{MARCA}/BRAND.md",
+        "guia_visual": f"{HUB}/{MARCA}/guia/",
         "pecas": pecas,
-        "arquivos": {"logos": logos, "assinatura": assinatura},
+        "arquivos": {"logos": logos, "assinatura": assinatura, "logo_pack": logo_pack},
     }
     (saida / MARCA / "manifest.json").write_text(json.dumps(manifesto, indent=2, ensure_ascii=False) + "\n")
 
@@ -165,6 +184,8 @@ def montar(saida):
         citados |= set(re.findall(rf"{re.escape(HUB)}/({MARCA}/[^\"')\s<>`]+)", conteudo))
         if p.name == "manifest.json":
             citados |= set(re.findall(rf'"({MARCA}/[^"]+\.\w+)"', conteudo))
+    # Endereço de pasta (…/guia/) é servido pelo index.html dela.
+    citados = {c + "index.html" if c.endswith("/") else c for c in citados}
     for chave in sorted(citados - chaves):
         erros.append(f"endereço citado e ausente da publicação: {chave}")
     for chave in chaves:

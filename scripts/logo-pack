@@ -1,0 +1,116 @@
+#!/usr/bin/env -S python3 -I
+"""Gera o logo pack do Optimall: pasta com a página de diretrizes (index.html) e um .zip.
+
+Usa só os arquivos oficiais que o scripts/publicar já publica no hub, sem mexer no desenho:
+  01-logo/       colorido, branco e preto (brand/assets/header/), SVG + PNG; PNGs 2x do e-mail
+  02-simbolo/    o símbolo colorido (brand/assets/header/simbolo-optimall.svg), SVG + PNG
+  03-assinatura/ "Uma solução Optimall" preta, branca e colorida (brand/assets/assinatura/)
+Os PNGs saem do Google Chrome da máquina pela mesma função do publicar (fundo transparente).
+
+A página vem de hub/logo-pack.html: mude lá e rode de novo. Os caminhos dela são relativos ao
+pack, então funciona aberta do zip e no hub (https://marcas.taclalabs.workers.dev/optimall/guia/).
+
+Uso:
+  ./scripts/logo-pack                 grava em saida/_logo-pack/
+  ./scripts/logo-pack --saida <pasta>  grava em <pasta> (o publicar usa uma pasta temporária)
+
+Saída: <pasta>/optimall-logo-pack/ e <pasta>/optimall-logo-pack.zip (com a pasta dentro).
+"""
+
+import importlib.util
+import re
+import shutil
+import sys
+import zipfile
+from concurrent.futures import ThreadPoolExecutor
+from datetime import date
+from importlib.machinery import SourceFileLoader
+from pathlib import Path
+
+RAIZ = Path(__file__).resolve().parent.parent
+# O publicar não tem extensão .py: carrega pelo caminho, para usar a mesma função png().
+_spec = importlib.util.spec_from_loader("publicar", SourceFileLoader("publicar", str(RAIZ / "scripts/publicar")))
+publicar = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(publicar)
+
+NOME = "optimall-logo-pack"
+PAGINA = RAIZ / "hub/logo-pack.html"
+HEADER = RAIZ / "brand/assets/header"
+ASSINATURA = RAIZ / "brand/assets/assinatura"
+
+# pasta do pack → [(arquivo oficial, nome no pack)], larguras dos PNGs
+PECAS = {
+    "01-logo": ([(HEADER / "logo-optimall.svg", "optimall-logo-colorido"),
+                 (HEADER / "logo-optimall-branco.svg", "optimall-logo-branco"),
+                 (HEADER / "logo-optimall-preto.svg", "optimall-logo-preto")],
+                (512, 1024, 2048, 4096)),
+    "02-simbolo": ([(HEADER / "simbolo-optimall.svg", "optimall-simbolo")],
+                   (256, 512, 1024, 2048)),
+    "03-assinatura": ([(ASSINATURA / f"optimall-assinatura-{cor}.svg", f"optimall-assinatura-{cor}")
+                       for cor in ("preto", "branco", "colorido")],
+                      (600, 1200, 2400)),
+}
+# PNGs 2x do e-mail (286 × 48, exibidos a 143 × 24), os mesmos que o publicar põe em optimall/email/
+EMAIL = [(HEADER / "logo-optimall.png", "optimall-logo-colorido-email.png"),
+         (HEADER / "logo-optimall-branco.png", "optimall-logo-branco-email.png")]
+
+MESES = ("jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez")
+
+
+def gerar(base):
+    """Recria <base>/optimall-logo-pack/ e o .zip. Devolve (pasta, zip)."""
+    pack = base / NOME
+    if pack.exists():
+        shutil.rmtree(pack)
+    pack.mkdir(parents=True)
+
+    pngs = []
+    for pasta, (arquivos, larguras) in PECAS.items():
+        for origem, nome in arquivos:
+            (pack / pasta / "svg").mkdir(parents=True, exist_ok=True)
+            (pack / pasta / "png").mkdir(parents=True, exist_ok=True)
+            shutil.copy(origem, pack / pasta / "svg" / f"{nome}.svg")
+            pngs += [(origem, pack / pasta / "png" / f"{nome}-{w}.png", w) for w in larguras]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        list(pool.map(lambda a: publicar.png(*a), pngs))
+    for _, destino, _ in pngs:
+        if not destino.is_file():
+            raise SystemExit(f"✗ O Chrome não gerou {destino.relative_to(pack)}")
+
+    (pack / "01-logo/email").mkdir(parents=True, exist_ok=True)
+    for origem, nome in EMAIL:
+        shutil.copy(origem, pack / "01-logo/email" / nome)
+
+    hoje = date.today()
+    pagina = PAGINA.read_text().replace("__VERSAO__", f"{hoje.day} {MESES[hoje.month - 1]} {hoje.year}")
+    (pack / "index.html").write_text(pagina)
+
+    # Todo arquivo que a página cita precisa estar no pack.
+    faltam = [ref for ref in sorted(set(re.findall(r'(?:src|href)="(0\d-[^"#?]+)"', pagina)))
+              if not (pack / ref).is_file()]
+    if faltam:
+        raise SystemExit("✗ A página cita arquivos que não estão no pack:\n  " + "\n  ".join(faltam))
+
+    destino_zip = base / f"{NOME}.zip"
+    destino_zip.unlink(missing_ok=True)
+    with zipfile.ZipFile(destino_zip, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in sorted(pack.rglob("*")):
+            if f.is_file() and f.name != ".DS_Store":
+                z.write(f, f.relative_to(base).as_posix())
+    return pack, destino_zip
+
+
+def main(argv):
+    base = RAIZ / "saida/_logo-pack"
+    if "--saida" in argv:
+        base = Path(argv[argv.index("--saida") + 1]).resolve()
+    base.mkdir(parents=True, exist_ok=True)
+    pack, destino_zip = gerar(base)
+    total = sum(1 for f in pack.rglob("*") if f.is_file())
+    print(f"{total} arquivos em {pack}")
+    print(f"{destino_zip} ({destino_zip.stat().st_size / 1024:.0f} KB)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

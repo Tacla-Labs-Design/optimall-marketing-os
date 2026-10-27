@@ -10,6 +10,30 @@ entra sozinho na próxima peça.
 
 ---
 
+## 2026-10-27 — Logo pack e guia visual do Optimall no hub
+
+O time ganha um lugar só para baixar os arquivos da marca e ver as regras de uso, sem abrir o
+repositório: `https://marcas.taclalabs.workers.dev/optimall/guia/`.
+
+### Novo
+
+- **Logo pack** (`optimall-logo-pack/` + `.zip`): logo colorido, branco e preto, símbolo e
+  assinatura "Uma solução Optimall", em SVG e PNG transparente em várias larguras, mais os PNGs 2x
+  do e-mail. São os mesmos arquivos oficiais do hub, sem nenhuma alteração.
+- **Página de diretrizes** (`hub/logo-pack.html`, vira o `index.html` do pack): estrutura, logo,
+  símbolo, assinatura, cores, tipografia, onde usar e o que não pode. Só regra que já está em
+  `brand/`.
+- **`scripts/logo-pack`** gera o pack em `saida/_logo-pack/`. O `scripts/publicar` gera de novo a
+  cada publicação e envia a pasta para `optimall/guia/` e o zip para `optimall/optimall-logo-pack.zip`;
+  o manifesto ganha `guia_visual` e `arquivos.logo_pack`.
+
+### Mudado
+
+- `scripts/publicar`: o Chrome que gera os PNGs roda com perfil próprio e sem prender a saída, para
+  não travar quando o Chrome da máquina está aberto ou acabou de se atualizar.
+
+---
+
 ## 2026-10-27 — E-mail: página branca, gradient mesh no topo e na faixa de CTA
 
 O maintainer trocou o desenho do e-mail por um layout de newsletter de produto: página branca,

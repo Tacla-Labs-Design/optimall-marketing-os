@@ -5,6 +5,7 @@ para shoppings, com a marca de cada shopping (white label). Fala **só com quem 
 shopping**: superintendência, marketing, CRM, operação, comercial. Nunca com o consumidor final.
 
 Arquivos: https://marcas.taclalabs.workers.dev/optimall/manifest.json
+Guia visual e logo pack (página + .zip): https://marcas.taclalabs.workers.dev/optimall/guia/
 Fonte destas regras: repositório `optimall-marketing-os` (pasta `brand/`).
 
 ## Marca
