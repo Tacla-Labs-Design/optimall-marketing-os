@@ -11,7 +11,7 @@
 ## CSS
 - [ ] Todo estilo visual está inline; o `<style>` só tem reset, media query e dark mode
 - [ ] Zero `var()`, `calc()`, `flex`, `grid`, `position`, `float`, `rem`
-- [ ] Nenhum texto abaixo de 15px (exceto legal 12px, eyebrow 12px e label de número 14px)
+- [ ] Nenhum texto abaixo de 15px (exceto legal 12px e eyebrow 12px)
 - [ ] Todo `<td>` com texto declara `font-family`, `font-size`, `line-height` e `color`
 
 ## Imagens
@@ -32,11 +32,16 @@
 
 ## Dark mode
 - [ ] Testado em Apple Mail dark e Outlook.com dark
-- [ ] Logo legível nos dois modos (header: logo branco sobre a faixa roxa, que não muda)
+- [ ] Logo legível nos dois modos (topo: logo colorido sobre o mesh claro, que não muda)
+- [ ] O mesh do topo some no fundo nos dois modos, sem corte reto embaixo (o topo tem mais de
+      400px de altura)
 - [ ] Nenhum texto escuro sobre fundo escuro
 
 ## Marca
-- [ ] Header `01-header` com a faixa roxa, o logo branco e a imagem de abertura colada nela, conteúdo dentro da `00-moldura-conteudo`, rodapé social `90-social` fora dos cards, com o logo e as redes do Optimall
+- [ ] Topo `01-header` com o mesh, o logo, o título da edição e a imagem de abertura; conteúdo
+      solto na página branca, alinhado à esquerda; `89-faixa-cta-mesh` com o único CTA;
+      rodapé `90-social` + `91-footer-legal` na faixa lavanda, com o logo e as redes do Optimall
+- [ ] Mesh do topo e da faixa na lista de imagens a hospedar
 - [ ] Texto B2B, de `brand/mensagens.md`: fala com o gestor do shopping, números só os
       oficiais, CTA *Fale com um consultor*; sempre "o Optimall", nunca "a Optimall"
 - [ ] Nada do Podi nem da Tacla Labs — nem no texto, nem no `alt`, nem em imagem

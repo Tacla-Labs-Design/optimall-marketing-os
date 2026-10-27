@@ -12,17 +12,18 @@
           conteúdo. Cada item é uma <tr> da tabela interna do card.
        3. Entre grupos, o ITEM · LINHA FINA. Ela é obrigatória antes do CTA — por isso
           o ITEM · CTA já vem com a linha embutida.
-       4. Um CTA só, sempre o último item.
+       4. Um CTA só, sempre o último item. Com o 13, a peça não usa a 89-faixa-cta-mesh.
 
      Largura útil dentro do card: 536 − 2×32 = 472px desktop.
      Mobile: .card-mobile reduz o padding para 24px 20px.
      ============================================================================ -->
 
 
-<!-- CARD · o contêiner. -->
+<!-- CARD · o contêiner. Branco com borda hairline: a página também é branca, quem desenha o card
+     é a borda. No dark mode o card vira #242424 (.dm-surface) e a borda #333333 (.dm-hair-b). -->
 <tr>
   <td class="p-mobile" style="padding:0 32px;">
-    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#FFFFFF" class="dm-surface" style="width:100%;background-color:#FFFFFF;border-radius:20px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#FFFFFF" class="dm-surface dm-hair-b" style="width:100%;background-color:#FFFFFF;border:1px solid #E3DDF1;border-radius:20px;">
       <tr>
         <td class="card-mobile" style="padding:32px 32px 36px 32px;">
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">

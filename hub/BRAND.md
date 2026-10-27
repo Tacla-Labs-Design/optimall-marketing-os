@@ -51,8 +51,11 @@ nem aplique sombra ou efeito. Não escreva "optimall" em texto no lugar do logo.
 - Sem cor secundária: régua, chip e bullet usam o próprio roxo. Nenhuma cor fora desta tabela e
   das receitas de degradê e vidro que já vêm nos modelos.
 - Grafismos: degradê radial roxo, pattern de pontos lilás, símbolo gigante em transparência,
-  cards brancos e painéis de vidro sobre lavanda, pílulas de número, chips de ícone roxos. Já
-  estão nos modelos; não se inventa grafismo novo.
+  cards brancos e painéis de vidro sobre lavanda, pílulas de número, chips de ícone roxos. No
+  e-mail, o gradient mesh: claro no topo (texto escuro, tons fortes longe do texto) e roxo na
+  faixa de CTA (texto branco), como imagem pronta em
+  `https://marcas.taclalabs.workers.dev/optimall/arquivos/mesh-email-topo.png` e
+  `…/mesh-email-cta.png`. Já estão nos modelos; não se inventa grafismo novo.
 
 ## Tipografia
 

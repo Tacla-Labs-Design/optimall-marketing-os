@@ -1,31 +1,39 @@
 <!-- ============================================================================
-     08 · DESTAQUE DE NÚMEROS — faixa accent-soft com números grandes. Duas variantes.
+     08 · DESTAQUE DE NÚMEROS — duas variantes. Número sempre como está em
+     brand/mensagens.md, por extenso ("+3,8 milhões", nunca "+3,8 mi").
      ============================================================================ -->
 
 
-<!-- VARIANTE A · 3 COLUNAS — endomarketing / resultados. Número em cima, label 14px embaixo.
-     Empilha no mobile. -->
+<!-- VARIANTE A · LISTA — vários números, um por linha, solto na página, abaixo de um
+     02b-titulo-secao ("Em números"). Número à esquerda (28/34 accent-ink), rótulo à direita
+     (body small 15/23), linha fina entre as linhas — a última linha vai sem borda.
+     No mobile empilha: o rótulo desce para baixo do número e alinha à esquerda (.num-*).
+     Para mais ou menos números, repetir ou apagar a <tr>. Máximo: 4. -->
 <tr>
   <td class="p-mobile" style="padding:0 32px;">
-    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F3E8FF" class="dm-tag" style="width:100%;background-color:#F3E8FF;border-radius:20px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
       <tr>
-        <td class="card-mobile" style="padding:32px 24px;">
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
-            <tr>
-              <td class="stack" width="33.33%" align="center" valign="top" style="width:33.33%;padding:8px 8px;">
-                <p class="dm-accent" style="margin:0 0 4px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">{{NUM_1}}</p>
-                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color:#353E4F;text-align:center;">{{LABEL_1}}</p>
-              </td>
-              <td class="stack" width="33.33%" align="center" valign="top" style="width:33.33%;padding:8px 8px;">
-                <p class="dm-accent" style="margin:0 0 4px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">{{NUM_2}}</p>
-                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color:#353E4F;text-align:center;">{{LABEL_2}}</p>
-              </td>
-              <td class="stack" width="33.33%" align="center" valign="top" style="width:33.33%;padding:8px 8px;">
-                <p class="dm-accent" style="margin:0 0 4px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">{{NUM_3}}</p>
-                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color:#353E4F;text-align:center;">{{LABEL_3}}</p>
-              </td>
-            </tr>
-          </table>
+        <td class="dm-hair-b stack num-valor" valign="middle" style="padding:16px 0;border-bottom:1px solid #E3DDF1;">
+          <p class="dm-accent" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:600;color:#9025F4;letter-spacing:-0.5px;">{{NUM_1}}</p>
+        </td>
+        <td class="dm-hair-b stack num-rotulo" align="right" valign="middle" style="padding:16px 0 16px 16px;border-bottom:1px solid #E3DDF1;">
+          <p class="dm-body num-texto" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#353E4F;text-align:right;">{{LABEL_1}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="dm-hair-b stack num-valor" valign="middle" style="padding:16px 0;border-bottom:1px solid #E3DDF1;">
+          <p class="dm-accent" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:600;color:#9025F4;letter-spacing:-0.5px;">{{NUM_2}}</p>
+        </td>
+        <td class="dm-hair-b stack num-rotulo" align="right" valign="middle" style="padding:16px 0 16px 16px;border-bottom:1px solid #E3DDF1;">
+          <p class="dm-body num-texto" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#353E4F;text-align:right;">{{LABEL_2}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="stack num-valor" valign="middle" style="padding:16px 0;">
+          <p class="dm-accent" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:600;color:#9025F4;letter-spacing:-0.5px;">{{NUM_3}}</p>
+        </td>
+        <td class="stack num-rotulo" align="right" valign="middle" style="padding:16px 0 16px 16px;">
+          <p class="dm-body num-texto" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#353E4F;text-align:right;">{{LABEL_3}}</p>
         </td>
       </tr>
     </table>
@@ -33,16 +41,16 @@
 </tr>
 
 
-<!-- VARIANTE B · 1 COLUNA — um número só, a informação principal da peça.
-     Rótulo em cima, em 16px (body), e número embaixo, em 32px. Aqui o rótulo é frase
-     ("Shoppings atendidos"), não legenda: por isso 16px e não os 14px da variante A. -->
+<!-- VARIANTE B · UM NÚMERO — a informação principal da peça, num painel accent-soft.
+     Rótulo em cima, em 16px (body), e número embaixo, em 32px, alinhados à esquerda. Aqui o
+     rótulo é frase ("Shoppings atendidos"), não legenda: por isso 16px. -->
 <tr>
   <td class="p-mobile" style="padding:0 32px;">
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F3E8FF" class="dm-tag" style="width:100%;background-color:#F3E8FF;border-radius:20px;">
       <tr>
-        <td align="center" class="card-mobile" style="padding:32px 24px;">
-          <p class="dm-body" style="margin:0 0 6px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:25px;font-weight:400;color:#353E4F;text-align:center;">{{LABEL}}</p>
-          <p class="dm-accent" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">{{NUM}}</p>
+        <td align="left" class="card-mobile" style="padding:32px;">
+          <p class="dm-body" style="margin:0 0 6px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:25px;font-weight:400;color:#353E4F;">{{LABEL}}</p>
+          <p class="dm-accent" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;letter-spacing:-0.5px;">{{NUM}}</p>
         </td>
       </tr>
     </table>

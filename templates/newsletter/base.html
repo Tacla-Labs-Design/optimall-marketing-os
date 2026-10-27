@@ -48,6 +48,12 @@
     .t-h2        { font-size:23px !important; line-height:29px !important; }
     .t-h3        { font-size:19px !important; line-height:25px !important; }
     .order-img   { display:table-header-group !important; }
+    .t-masthead  { font-size:36px !important; line-height:40px !important; }
+    .painel      { padding:16px !important; }
+    .painel-recorte { padding:16px 16px 0 16px !important; }
+    .num-valor   { padding:16px 0 2px 0 !important; border-bottom:0 !important; }
+    .num-rotulo  { padding:0 0 16px 0 !important; text-align:left !important; }
+    .num-texto   { text-align:left !important; }
   }
 
   /* ---------- dark mode ---------- */
@@ -59,6 +65,7 @@
     .dm-body    { color:#C9C9C9 !important; }
     .dm-muted   { color:#8F8F8F !important; }
     .dm-hair    { background-color:#333333 !important; border-color:#333333 !important; }
+    .dm-hair-b  { border-color:#333333 !important; }
     .dm-btn     { background-color:#FFFFFF !important; color:#18181B !important; }
     .dm-accent  { color:#D5BFFF !important; }
     .dm-tag     { background-color:#262030 !important; }
@@ -75,12 +82,13 @@
   [data-ogsc] .dm-accent  { color:#D5BFFF !important; }
   [data-ogsc] .dm-tag     { background-color:#262030 !important; }
   [data-ogsc] .dm-muted   { color:#8F8F8F !important; }
+  [data-ogsc] .dm-hair-b  { border-color:#333333 !important; }
   [data-ogsc] .dm-logo-claro  { display:none !important; }
   [data-ogsc] .dm-logo-escuro { display:block !important; max-height:none !important; }
 </style>
 </head>
 
-<body id="body" class="dm-page" style="margin:0;padding:0;width:100%;background-color:#FAF5FF;">
+<body id="body" class="dm-page" style="margin:0;padding:0;width:100%;background-color:#FFFFFF;">
 
 <!-- PREHEADER: 60-90 caracteres. Aparece na caixa de entrada, nunca no corpo. -->
 <div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">
@@ -88,22 +96,23 @@
   &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
 </div>
 
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="dm-page" style="background-color:#FAF5FF;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="dm-page" style="background-color:#FFFFFF;">
   <tr>
     <td align="center" style="padding:0;">
 
       <!--[if mso]><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" align="center"><tr><td><![endif]-->
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w-full dm-canvas" style="width:100%;max-width:600px;background-color:#FAF5FF;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w-full dm-canvas" style="width:100%;max-width:600px;background-color:#FFFFFF;">
 
         <!-- ============================================================
              COLE OS BLOCOS DE design-system/newsletter/components/ AQUI, NESTA ORDEM:
-               1. 01-header.html          (obrigatório — faixa roxa com logo branco + imagem de abertura, um card só)
-               2. 00-moldura-conteudo.html ABRE
-                  blocos de conteúdo      (máx. 4 seções)
-                  00-moldura-conteudo.html FECHA
-               3. 90-social.html          (obrigatório)
-               4. 91-footer-legal.html    (obrigatório)
-             Entre blocos, usar o espaçador de 99-spacer.html.
+               1. 01-header.html          (obrigatório — topo com o gradient mesh claro, logo,
+                                           título da edição, data e imagem de abertura)
+               2. blocos de conteúdo      (máx. 4 seções), soltos na página branca
+               3. 89-faixa-cta-mesh.html  (o CTA da peça, no mesh roxo; sem ela, o CTA vai no 04)
+               4. 90-social.html          (obrigatório — abre a faixa lavanda do rodapé)
+               5. 91-footer-legal.html    (obrigatório — continua a faixa)
+             Entre blocos de conteúdo, usar o espaçador de 99-spacer.html. Entre o último
+             bloco e a 89, 40px. Da 89 em diante, nada de espaçador: as faixas ficam coladas.
 
              VARIÁVEIS: a regra de envio do Optimall está pendente, então a peça sai sem
              nenhuma variável de envio. Todo placeholder em maiúscula entre chaves duplas

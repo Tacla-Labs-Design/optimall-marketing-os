@@ -137,6 +137,12 @@ que some em direção ao centro, o símbolo gigante em transparência, cards bra
 vidro sobre lavanda, pílulas de número, chips de ícone roxos. Arquivos em
 `assets/grafismos/`; as receitas, nos `tokens.md` de deck e post.
 
+No e-mail, o grafismo é o **gradient mesh**: vários pontos radiais da paleta sobrepostos, numa
+versão clara (texto escuro por cima, tons fortes longe do texto) e numa roxa (texto sempre
+branco). Receitas em `design-system/newsletter/tokens.md`; as imagens saem do
+`scripts/gerar-mesh.py` para `assets/grafismos/mesh-email-*.png`. Só cores da paleta — mesh
+com cor de fora não é do Optimall.
+
 ## A pasta `assets/`
 
 | Pasta | O que tem | No repositório? |
@@ -147,7 +153,7 @@ vidro sobre lavanda, pílulas de número, chips de ícone roxos. Arquivos em
 | `icones-ui/` | Ícones HugeIcons bulk em `currentColor`, para chips de deck e post | Sim |
 | `clientes/` | Logos dos shoppings clientes: `<nome>-roxo.svg` (deck) e `<nome>.png` (cinza-azulado, do site) | Sim |
 | `parceiros/` | Logos das integrações (estacionamento, cinema, intranet) | Sim |
-| `grafismos/` | Símbolo gigante, vidros, elipse e demais grafismos do Figma | Sim |
+| `grafismos/` | Símbolo gigante, vidros, elipse e demais grafismos do Figma; o gradient mesh do e-mail (`mesh-email-topo.png`, `mesh-email-cta.png`) | Sim |
 | `produto/` | Telas do painel e do app (`deck-*`, `post-*`) — a prova visual do produto | **Não — só no computador** |
 | `fotos/` | Fotos aprovadas dos posts (banco de imagem licenciado) | **Não — só no computador** |
 

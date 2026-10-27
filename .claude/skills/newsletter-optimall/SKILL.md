@@ -66,9 +66,14 @@ O nome do arquivo carrega a intenção (ver `docs/como-enviar-conteudo.md`):
 
 | Nome | Significado | Componente |
 |---|---|---|
-| `capa.*` | Abertura da edição | a imagem do `01-header`, colada na faixa do logo |
-| `NN-nome.*` | Notícia NN, imagem no topo em largura inteira | `11-card-noticia` |
-| `NN-nome-1x1.*` | Notícia NN, imagem ao lado do texto | `07-artigos-alternados` ou `12-card-noticia-compacta` |
+| `capa.*` | Abertura da edição | a imagem do `01-header`, entrando no mesh do topo |
+| `NN-nome.*` | Notícia NN, imagem em largura inteira | `11-card-noticia`, imagem no painel |
+| `NN-nome-1x1.*` | Notícia NN, imagem quadrada | `11-card-noticia` (painel, 400px), `07-artigos-alternados` ou `12-card-noticia-compacta` |
+
+No `11`, o painel se escolhe pela imagem: **arte** (mockup, ilustração) → variante A, lavanda;
+**print de tela** com fundo branco → variante B, `#F9F8FC` com borda; **PNG transparente**
+(celular na mão, produto recortado) → variante C, encostando no pé do painel. Abra a imagem
+para saber — o nome não diz.
 
 O `NN` casa com o número do bloco no documento. Se o texto e a imagem não fecharem,
 **perguntar** — associação errada é pior que pergunta a mais.
@@ -83,7 +88,8 @@ resto.
 E-mail não recorta imagem: o arquivo entra com a forma que tem.
 
 - Sem sufixo / `capa` → **16:9 ou mais panorâmica**, mínimo 1072px de largura
-- `-1x1` → **quadrada**, tolerância de 2%, mínimo 496×496
+- `-1x1` → **quadrada**, tolerância de 2%, mínimo 800×800 (no painel do `11` ela aparece a
+  400px; no `07`, a 248px, e 496×496 basta)
 - Galeria dentro do card (`13a`) → **quadrada**, mínimo 448×448
 
 Quando não bater, **não distorça e não corte por conta própria**. Monte o resto do
@@ -102,17 +108,25 @@ Formato fora de JPG/PNG (WebP, AVIF, HEIC, SVG) é bloqueio: converter com
    **Nenhuma peça leva link de descadastro**
    (`design-system/newsletter/guidelines/variaveis-envio.md`).
 2. Copiar `templates/newsletter/base.html` para **`saida/<slug>/index.html`** e colar os
-   blocos de `design-system/newsletter/components/` no lugar marcado: `01-header` (faixa roxa
-   com o logo branco e a `capa` colada nela, no mesmo card) → `00-moldura-conteudo` ABRE → blocos de conteúdo
-   (`02` a `13b`) → `00-moldura-conteudo` FECHA → `90-social` → `91-footer-legal`. O rodapé
-   fica fora dos cards. Trocar o
+   blocos de `design-system/newsletter/components/` no lugar marcado: `01-header` (mesh claro,
+   logo, título da edição, data e a `capa`) → blocos de conteúdo (`02` a `13b`), soltos na
+   página branca e alinhados à esquerda → `89-faixa-cta-mesh` (o CTA da peça) → `90-social` →
+   `91-footer-legal`. O ritmo e os espaçadores estão em
+   `design-system/newsletter/guidelines/layout-ritmo.md`.
+   O **título da edição** é o nome do módulo ou da série ("Clube de Benefícios", "Novidades do
+   Optimall"), até 24 caracteres — não é a manchete; a manchete vai no `02`, logo depois do
+   topo. A **linha de data** é o mês e o ano do envio. Trocar o
    `{{TITULO_INTERNO}}` e o `{{PREHEADER}}` do template (preheader que o briefing não trouxer,
    escrever a partir da chamada, 60–90 caracteres). Os comentários dos blocos podem ficar — o
    `conferir` não os lê. **Nunca apagar** os condicionais do Outlook (`<!--[if mso]>`,
    `<!--[if !mso]><!-->`, `<!--<![endif]-->`): sem eles o botão some.
    As imagens do briefing vão para **`saida/<slug>/imagens/`**, e a peça aponta para lá.
    Link de artigo (`07`, `11`, `12`) que o briefing não trouxer **sai** — a linha inteira —,
-   em vez de repetir o CTA principal: um CTA por peça.
+   em vez de repetir o CTA principal: um CTA por peça, e ele fica na `89-faixa-cta-mesh`. Os
+   outros blocos com botão (`04`, `05`, `06`) entram sem a tabela do botão. A exceção é a peça
+   montada no `13-card-conteudo`: o CTA fica dentro do card, e a `89` sai.
+   O título e a frase da faixa saem do briefing ou de `brand/mensagens.md`: título até 40
+   caracteres, frase de uma linha só (é ela que garante o contraste do texto branco).
    Nunca gravar em `examples/` — aquilo é acervo curado, gravado só por quem cuida do padrão.
 3. Máximo de **4 blocos de conteúdo**. Passou disso, cortar ou propor dois envios.
 4. Ativos e links fixos de `brand/links-oficiais.md` — logo, URLs sociais, CTA, Política de
@@ -120,7 +134,8 @@ Formato fora de JPG/PNG (WebP, AVIF, HEIC, SVG) é bloqueio: converter com
    para `links.cta` do `marca.json`.
 5. **Nunca escrever cor solta.** Toda cor sai de `design-system/newsletter/tokens.md`. O roxo
    de marca é fundo (botão, tag); texto sobre ele é sempre branco; roxo como texto é o
-   `accent-ink` `#9025F4`.
+   `accent-ink` `#9025F4`. O gradient mesh é imagem pronta (`brand/assets/grafismos/`): não se
+   gera mesh novo, não se troca cor dele e não se escreve degradê em CSS na peça.
 6. **Nenhuma variável `{{...}}`.** Enquanto `envio.variaveis` do `marca.json` estiver vazio,
    o rodapé sai sem o "em {{email}}" ("Você recebeu este e-mail porque …"), e campo
    personalizado do briefing (`{{nome}}` e afins) vira texto fixo ou sai da peça. Se o
@@ -171,8 +186,9 @@ Além disso, o `conferir` acusa cor fora da paleta, roxo de marca como texto e s
 ou da Tacla Labs. Pendência aqui é correção antes de entregar, não item de relatório.
 
 Relatar sempre: caminho do arquivo, **subject** (≤45 caracteres), **preheader** (60–90),
-peso do HTML, componentes usados, imagens a hospedar com dimensão final (inclusive o logo
-e os ícones sociais do Optimall), e o que ficou de fora e por quê.
+peso do HTML, componentes usados, imagens a hospedar com dimensão final (inclusive o logo,
+os ícones sociais e as duas imagens de mesh — `mesh-email-topo.png` 600 × 400 e
+`mesh-email-cta.png` 600 × 240), e o que ficou de fora e por quê.
 
 Enquanto a regra de envio estiver pendente, a entrega diz, em destaque: **a regra de envio
 do Optimall ainda não foi definida** — a peça saiu sem nenhuma variável, e quem for disparar

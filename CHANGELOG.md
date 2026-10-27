@@ -10,6 +10,57 @@ entra sozinho na próxima peça.
 
 ---
 
+## 2026-10-27 — E-mail: página branca, gradient mesh no topo e na faixa de CTA
+
+O maintainer trocou o desenho do e-mail por um layout de newsletter de produto: página branca,
+topo com gradient mesh, títulos grandes, conteúdo solto e alinhado à esquerda, imagens em
+painéis e uma faixa de CTA no fim. O mesh usa só cores da paleta. Aprovado na prévia em 2026-10-27.
+
+**Ação necessária:** e-mail montado antes desta data está no desenho antigo (faixa roxa com logo
+branco + card de conteúdo). Os que ainda não foram enviados precisam ser remontados com
+`/newsletter-optimall` a partir do briefing.
+
+### Novo
+
+- **Gradient mesh** — `mesh-claro` (topo, texto escuro por cima) e `mesh-roxo` (faixa de CTA,
+  texto branco), com as receitas e as regras de contraste em `design-system/newsletter/tokens.md`.
+  As imagens estão em `brand/assets/grafismos/mesh-email-topo.png` (600 × 400, some para
+  transparente) e `mesh-email-cta.png` (600 × 240). No e-mail o mesh vai como imagem, porque
+  Gmail e Outlook ignoram degradê em CSS.
+- **`scripts/gerar-mesh.py`** gera as duas imagens pelo Chrome, sem nada para instalar, e
+  imprime as receitas em CSS para deck, post ou web (`css`).
+- **`89-faixa-cta-mesh`** — o fecho do conteúdo e o lugar do único CTA da peça: mesh roxo,
+  título e frase em branco, botão branco.
+- **Botão variante C** em `_button.html`: branco com texto `#9025F4`, só sobre o mesh roxo.
+
+### Mudado
+
+- **`01-header`**: em vez da faixa roxa com logo branco, o topo com o mesh claro, o logo
+  colorido, o título da edição (46px), a linha de data e a imagem de abertura com borda fina,
+  entrando no degradê. Componente com dois campos novos: `{{TITULO_EDICAO}}` e `{{LINHA_DE_DATA}}`.
+- **Página** `#FFFFFF` (era `#FAF5FF`) e **tudo alinhado à esquerda** — fora o `06`, que é
+  vitrine. Headline de abertura 26/32, título de seção 30/36.
+- **`11-card-noticia`**: a imagem vai num painel de raio 20px — lavanda para arte, `#F9F8FC`
+  com borda para print de tela, lavanda sem padding embaixo para PNG recortado —, com o texto
+  solto embaixo e link opcional.
+- **`08-destaque-numeros`** variante A: lista, um número por linha, número à esquerda e rótulo à
+  direita, empilhando no mobile. Números por extenso, como em `brand/mensagens.md`. Saiu a
+  exceção do rótulo de 14px.
+- **`05` e `06`** em painel lavanda; **`12`** solto na página; **`13`** branco com borda.
+- **Rodapé** (`90` + `91`) numa faixa lavanda `#FAF5FF`, alinhado à esquerda.
+- `templates/newsletter/base.html`, a skill `/newsletter-optimall`, as guidelines
+  (`layout-ritmo`, `email-compat`, `qa-checklist`), `brand/README.md` e, no hub, `BRAND.md`,
+  `guias/email.md` e `modelos/email.html` (campos novos: `titulo-edicao`, `data`,
+  `titulo-secao`, `titulo-cta`, `frase-cta`; imagem de artigo agora 800 × 800).
+- `scripts/publicar` ignora a crase em volta de um endereço citado em Markdown — antes ela
+  entrava no nome do arquivo e a publicação parava.
+
+### Removido
+
+- **`00-moldura-conteudo`**: não há mais card branco em volta do conteúdo.
+
+---
+
 ## 2026-10-27 — O Optimall no hub de marcas, com a assinatura "Uma solução Optimall"
 
 O time passa a usar a marca também pelo hub (`https://marcas.taclalabs.workers.dev/optimall/`),

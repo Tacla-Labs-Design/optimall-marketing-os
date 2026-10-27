@@ -1,41 +1,49 @@
 <!-- ============================================================================
-     01 · HEADER — obrigatório em toda peça. Um card de raio 20px: no topo, a faixa roxa da
-     marca (#9934FF) com o logo branco centralizado; logo abaixo, a imagem de abertura da
-     peça, colada na faixa e nas bordas do card, sem espaço entre as duas.
+     01 · HEADER (TOPO MESH) — obrigatório em toda peça. O gradient mesh claro de fundo, com
+     o logo colorido, o título grande da edição e a linha de data em texto vivo, alinhados à
+     esquerda. Embaixo, a imagem de abertura entra no degradê, que some para o fundo da página.
 
-     Logo: branco oficial, em PNG porque SVG não renderiza em e-mail. Exibido a 143x24
-     (arquivo 2x, brand/assets/header/logo-optimall-branco.png). O caminho relativo vale a
-     partir de saida/<slug>/index.html; na entrega, o logo é um dos arquivos a hospedar.
+     Mesh: brand/assets/grafismos/mesh-email-topo.png, 600x400, com transparência que some de
+     42% a 100% da altura (scripts/gerar-mesh.py). Ancorado no topo, sem repetir: o topo tem
+     sempre mais de 400px de altura, então o degradê termina antes do fim do bloco, nos dois
+     modos. Por baixo, bgcolor branco + .dm-page: no escuro o degradê some no #1A1A1A.
+     O par v:rect/v:fill leva o mesh ao Outlook Windows; sem ele, o Outlook mostra só o fundo.
 
-     Imagem de abertura: a `capa` do briefing, 536 de largura, 16:9 ou mais panorâmica
-     (exportar com no mínimo 1072px de largura). Sem raio em cima, raio de 20px embaixo,
-     fechando o card. Peça sem imagem de abertura: apagar a linha IMAGEM inteira e trocar o
-     raio da faixa para "20px" nos quatro cantos.
+     Texto por cima do mesh: tinta #18181B e corpo #353E4F, SEM classe dm-*. O mesh é claro
+     nos dois modos, então o texto escuro fica — virar claro no dark o apagaria sobre o lavanda.
+     O título fica sobre a parte clara do mesh; os tons fortes estão à direita e embaixo.
 
-     A faixa roxa não muda no dark mode, sem classe dm-*: branco sobre o roxo funciona nos
-     dois modos, sem depender de troca de imagem por CSS.
+     TÍTULO: o nome da edição ou do módulo ("Clube de Benefícios", "Novidades do Optimall"),
+     até 24 caracteres para caber numa linha. LINHA DE DATA: mês e ano, ou um subtítulo curto.
+     IMAGEM de abertura: a `capa` do briefing, 536 de largura, 16:9 ou mais panorâmica
+     (exportar com no mínimo 1072px). Raio de 12px e borda hairline, que separa print de tela
+     de fundo branco do lavanda. Peça sem imagem de abertura: apagar a linha IMAGEM inteira.
+
+     O caminho relativo vale a partir de saida/<slug>/index.html; na entrega, o mesh e o logo
+     são arquivos a hospedar.
      ============================================================================ -->
 <tr>
-  <td class="p-mobile" style="padding:28px 32px 24px 32px;">
-    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-radius:20px;">
+  <td valign="top" bgcolor="#FFFFFF" background="../../brand/assets/grafismos/mesh-email-topo.png" class="dm-page" style="background-color:#FFFFFF;background-image:url('../../brand/assets/grafismos/mesh-email-topo.png');background-repeat:no-repeat;background-position:top center;padding:0;">
+    <!--[if gte mso 9]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;"><v:fill type="frame" src="../../brand/assets/grafismos/mesh-email-topo.png" color="#FFFFFF" /><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
       <tr>
-        <td align="center" valign="middle" bgcolor="#9934FF" style="padding:28px 28px;background-color:#9934FF;border-radius:20px 20px 0 0;">
-          <!-- Tabela interna centralizada: <img> com display:block não obedece ao align do <td>. -->
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
-            <tr>
-              <td align="center">
-                <a href="https://www.optimall.com.br" target="_blank"><img src="../../brand/assets/header/logo-optimall-branco.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /></a>
-              </td>
-            </tr>
-          </table>
+        <td class="p-mobile" align="left" style="padding:36px 32px 0 32px;">
+          <a href="https://www.optimall.com.br" target="_blank"><img src="../../brand/assets/header/logo-optimall.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /></a>
         </td>
       </tr>
-      <!-- IMAGEM de abertura — colada no logo e nas bordas do card -->
       <tr>
-        <td align="center" style="padding:0;font-size:0;line-height:0;">
-          <img src="{{URL_IMAGEM_ABERTURA}}" width="536" alt="{{ALT_IMAGEM_ABERTURA}}" style="display:block;border:0;outline:none;text-decoration:none;width:100%;max-width:536px;height:auto;border-radius:0 0 20px 20px;" />
+        <td class="p-mobile" align="left" style="padding:40px 32px 0 32px;">
+          <h1 class="t-masthead" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:46px;line-height:50px;font-weight:600;color:#18181B;letter-spacing:-1.2px;">{{TITULO_EDICAO}}</h1>
+          <p style="margin:10px 0 0 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#353E4F;">{{LINHA_DE_DATA}}</p>
+        </td>
+      </tr>
+      <!-- IMAGEM de abertura — entra no degradê -->
+      <tr>
+        <td class="p-mobile" align="center" style="padding:28px 32px 0 32px;font-size:0;line-height:0;">
+          <img src="{{URL_IMAGEM_ABERTURA}}" width="536" alt="{{ALT_IMAGEM_ABERTURA}}" style="display:block;border:0;outline:none;text-decoration:none;width:100%;max-width:536px;height:auto;border-radius:12px;border:1px solid #E3DDF1;" />
         </td>
       </tr>
     </table>
+    <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
   </td>
 </tr>

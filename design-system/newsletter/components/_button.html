@@ -1,5 +1,7 @@
 <!-- ============================================================================
-     BOTÃO CTA (pill) — duas variantes. Escolher UMA por seção.
+     BOTÃO CTA (pill) — três variantes. Escolher UMA por seção.
+     A tabela do botão vem com align="center"; no layout do e-mail, que é alinhado à esquerda,
+     trocar para align="left" (e o <td> em volta para align="left").
      Ajustar sempre a largura do <v:roundrect> (width ≈ nº de caracteres * 9 + 56).
 
      {{URL}} entra nos DOIS lugares: no <v:roundrect> (MSO) e no <a>. Esquecer um
@@ -43,6 +45,25 @@
       <![endif]-->
       <!--[if !mso]><!-->
       <a href="{{URL}}" target="_blank" class="dm-btn" style="display:inline-block;padding:15px 30px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:16px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:100px;background-color:#18181B;mso-hide:all;">{{LABEL}}</a>
+      <!--<![endif]-->
+    </td>
+  </tr>
+</table>
+
+<!-- VARIANTE C · CTA SOBRE O MESH ROXO — branco com texto accent-ink #9025F4 (5,59:1).
+     Só sobre roxo: a 89-faixa-cta-mesh, onde já vem montada. Sobre fundo claro o botão branco
+     some — lá é a variante A. Não leva .dm-btn: a faixa roxa não muda no dark mode. -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="left">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF" style="border-radius:100px;">
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{URL}}" style="height:46px;v-text-anchor:middle;width:240px;" arcsize="50%" stroke="f" fillcolor="#FFFFFF">
+        <w:anchorlock/>
+        <center style="color:#9025F4;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;">{{LABEL}}</center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]><!-->
+      <a href="{{URL}}" target="_blank" style="display:inline-block;padding:15px 30px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:16px;font-weight:600;color:#9025F4;text-decoration:none;border-radius:100px;background-color:#FFFFFF;mso-hide:all;">{{LABEL}}</a>
       <!--<![endif]-->
     </td>
   </tr>

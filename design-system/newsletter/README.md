@@ -3,8 +3,8 @@
 O sistema visual das newsletters e e-mails do Optimall.
 
 ```
-tokens.md        Cor, tipografia, espaçamento, dark mode, tamanhos de imagem
-components/      Os 21 blocos de HTML de e-mail (com a moldura de conteúdo) + o botão VML
+tokens.md        Cor, gradient mesh, tipografia, espaçamento, dark mode, tamanhos de imagem
+components/      Os 21 blocos de HTML de e-mail + o botão VML
 guidelines/
   ├── email-compat.md   Regras técnicas de HTML de e-mail (não negociáveis)
   ├── layout-ritmo.md   Hierarquia, ritmo da peça, limites de CTA e de seções
@@ -22,9 +22,10 @@ A regra de contraste do roxo de marca nasce lá; aqui ela só é aplicada.
 Quase tudo em `guidelines/email-compat.md` e a tabela de tamanhos de imagem em `tokens.md`
 existem por causa das limitações dos clientes de e-mail. Não servem para outro material.
 
-**O que sobreviveria a outro suporte:** a paleta e a regra de contraste, os papéis
-tipográficos (não os px de e-mail), a escala de espaçamento, o raio de 20px do card e o
-princípio "cards brancos estruturam, fundo não se destaca".
+**O que sobreviveria a outro suporte:** a paleta e a regra de contraste, as receitas de
+gradient mesh (em CSS, `python3 scripts/gerar-mesh.py css`), os papéis tipográficos (não os px
+de e-mail), a escala de espaçamento, o raio de 20px do painel e o princípio "página branca,
+mesh no topo e no fecho, conteúdo alinhado à esquerda".
 
 A fonte do e-mail é a **Inter**, não a Halyard Text do deck e do post: o kit web da Halyard
 não carrega na maioria dos clientes de e-mail (Gmail e Outlook ignoram), e a peça sairia

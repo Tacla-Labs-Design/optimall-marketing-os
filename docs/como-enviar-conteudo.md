@@ -101,8 +101,8 @@ arquivo entra com a forma que tem. Fora da proporção, ele distorce ou estoura 
 
 | Sufixo | Onde aparece | Proporção | Tamanho mínimo |
 |---|---|---|---|
-| *(sem sufixo)* | Topo do bloco, largura inteira | **16:9 ou mais panorâmica** | 1072 × 604 |
-| `-1x1` | Ao lado do texto | **1:1 exata** (quadrada) | 496 × 496 |
+| *(sem sufixo)* | No painel do bloco, largura inteira | **16:9 ou mais panorâmica** | 1072 × 604 |
+| `-1x1` | No painel do bloco ou ao lado do texto | **1:1 exata** (quadrada) | 800 × 800 |
 | `capa` | Abertura | **16:9 ou mais panorâmica** | 1072 × 602 |
 
 Os tamanhos são o dobro do que aparece na tela — é o que mantém a imagem nítida em

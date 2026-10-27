@@ -1,0 +1,45 @@
+<!-- ============================================================================
+     89 · FAIXA CTA MESH — fecha o conteúdo, logo antes do 90-social. O gradient mesh roxo de
+     borda a borda do container (600px, sem raio), com título, uma frase e o CTA principal.
+     É o lugar do CTA da peça: com ela, os outros blocos ficam sem botão (um CTA por peça).
+
+     Mesh: brand/assets/grafismos/mesh-email-cta.png, 600x240 (scripts/gerar-mesh.py), com
+     background-size:cover para cobrir a faixa em qualquer altura. bgcolor #9934FF por baixo:
+     sem imagem, a faixa fica roxa lisa e continua legível. O par v:rect/v:fill leva o mesh ao
+     Outlook Windows.
+
+     Texto SEMPRE branco: é texto sobre o roxo da marca (brand/README.md). Sem classe dm-*: a
+     faixa não muda no dark mode. Botão: _button.html variante C (branco, texto accent-ink).
+
+     TÍTULO: pergunta ou convite curto, até 40 caracteres. FRASE: uma linha, o que acontece
+     depois do clique. O botão é sempre "Fale com um consultor" → links.cta do marca.json.
+     ============================================================================ -->
+<tr>
+  <td valign="middle" bgcolor="#9934FF" background="../../brand/assets/grafismos/mesh-email-cta.png" style="background-color:#9934FF;background-image:url('../../brand/assets/grafismos/mesh-email-cta.png');background-repeat:no-repeat;background-position:center center;background-size:cover;padding:0;">
+    <!--[if gte mso 9]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;"><v:fill type="frame" src="../../brand/assets/grafismos/mesh-email-cta.png" color="#9934FF" /><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+      <tr>
+        <td class="p-mobile" align="left" style="padding:40px 32px;">
+          <h2 class="t-h2" style="margin:0 0 8px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:26px;line-height:32px;font-weight:600;color:#FFFFFF;letter-spacing:-0.4px;">{{TITULO_CTA}}</h2>
+          <p style="margin:0 0 24px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#FFFFFF;">{{FRASE_CTA}}</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="left">
+            <tr>
+              <td align="center" bgcolor="#FFFFFF" style="border-radius:100px;">
+                <!--[if mso]>
+                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.optimall.com.br/fale-conosco" style="height:46px;v-text-anchor:middle;width:240px;" arcsize="50%" stroke="f" fillcolor="#FFFFFF">
+                  <w:anchorlock/>
+                  <center style="color:#9025F4;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;">Fale com um consultor</center>
+                </v:roundrect>
+                <![endif]-->
+                <!--[if !mso]><!-->
+                <a href="https://www.optimall.com.br/fale-conosco" target="_blank" style="display:inline-block;padding:15px 30px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:16px;font-weight:600;color:#9025F4;text-decoration:none;border-radius:100px;background-color:#FFFFFF;mso-hide:all;">Fale com um consultor</a>
+                <!--<![endif]-->
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+  </td>
+</tr>

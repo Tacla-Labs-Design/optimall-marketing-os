@@ -127,7 +127,7 @@ def montar(saida):
     textos = [p for p in saida.rglob("*") if p.suffix in (".md", ".html")]
     pedidos = set()
     for p in textos:
-        pedidos |= set(re.findall(rf"{re.escape(HUB)}/{MARCA}/arquivos/([^\"')\s]+)", p.read_text()))
+        pedidos |= set(re.findall(rf"{re.escape(HUB)}/{MARCA}/arquivos/([^\"'`)\s]+)", p.read_text()))
     erros = []
     for nome in sorted(pedidos):
         achados = [f for f in (RAIZ / "brand/assets").rglob(nome) if f.is_file()]

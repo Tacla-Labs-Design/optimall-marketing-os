@@ -57,7 +57,12 @@ Tamanhos e papéis exatos: [`../tokens.md`](../tokens.md).
 - Formato: **JPG ou PNG**. Proibido WebP, AVIF e SVG (Outlook e Gmail não renderizam).
 - Nenhuma informação crítica pode existir só em imagem — imagens vêm bloqueadas por
   padrão. Texto de headline, preço e CTA sempre em HTML.
-- `background-image` só como enfeite, sempre com `bgcolor` sólido de fallback.
+- `background-image` só como enfeite, sempre com `bgcolor` sólido de fallback. O único uso é o
+  gradient mesh do `01-header` e da `89-faixa-cta-mesh`: `background-image` em longhand + o
+  atributo `background` no `<td>` + o par `<v:rect>`/`<v:fill type="frame">` com
+  `mso-fit-shape-to-text` para o Outlook Windows. Sem a imagem, o texto continua legível sobre o
+  `bgcolor` (tinta sobre branco no topo, branco sobre roxo na faixa).
+- O mesh é a exceção ao "exportar em 2x": degradê não tem detalhe, e 1x (600px) pesa metade.
 - **E-mail não recorta imagem.** O arquivo entra com a forma que tem: fora da proporção,
   ele distorce ou estoura a coluna. Recorte é decisão de quem fez a foto, não da IA.
 

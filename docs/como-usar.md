@@ -151,8 +151,8 @@ Esta é a parte que mais economiza retrabalho. No e-mail, o nome do arquivo diz 
 | Nome do arquivo | Onde aparece | Proporção | Mínimo |
 |---|---|---|---|
 | `capa.jpg` | Abertura do e-mail | 16:9 ou mais larga | 1072 × 602 |
-| `01-painel-campanha.jpg` | Topo do bloco 01 | 16:9 ou mais larga | 1072 × 604 |
-| `03-clube-1x1.jpg` | Ao lado do texto | 1:1 exata | 496 × 496 |
+| `01-painel-campanha.jpg` | No painel do bloco 01 | 16:9 ou mais larga | 1072 × 604 |
+| `03-clube-1x1.jpg` | No painel do bloco 03 ou ao lado do texto | 1:1 exata | 800 × 800 |
 | `foto-legal.jpg` | Sem número, ele não adivinha | — | Ele pergunta |
 
 O guia completo de briefing e nomes está em
