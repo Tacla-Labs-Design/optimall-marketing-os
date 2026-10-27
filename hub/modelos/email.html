@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="pt-BR">
+<head>
+<!--
+  Modelo Optimall · e-mail (600 px, HTML de e-mail: só tabelas e CSS inline).
+  Desenho fixo: card do header (faixa roxa com o logo branco + imagem de abertura colada) →
+  card de conteúdo (do título aos números) → rodapé solto sobre o fundo lavanda.
+  Troque só o que tem data-slot. Texto entre colchetes é exemplo. Imagem com data-slot: ponha o
+  endereço da imagem hospedada no src. Números, CTA, redes e rodapé legal são fixos.
+  Sem nenhuma variável {{...}}: a regra do sistema de envio do Optimall ainda está pendente.
+  Para tirar um bloco, apague o <tr> inteiro dele. Nunca apague os condicionais do Outlook
+  (as linhas que começam com "[if mso]", "[if !mso]" e "[endif]"): sem eles o botão some.
+  Guia: https://marcas.taclalabs.workers.dev/optimall/guias/email.md
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="format-detection" content="telephone=no,address=no,email=no,date=no" />
+<meta name="color-scheme" content="light dark" />
+<meta name="supported-color-schemes" content="light dark" />
+<title>[Assunto do e-mail] · Optimall</title>
+
+<!--[if mso]>
+<xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml>
+<style>* { font-family: Arial, Helvetica, sans-serif !important; }</style>
+<![endif]-->
+
+<!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" /><!--<![endif]-->
+
+<style type="text/css">
+  /* ---------- resets de client ---------- */
+  html, body { margin:0 !important; padding:0 !important; height:100% !important; width:100% !important; }
+  body { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
+  img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%; outline:none; text-decoration:none; }
+  a { text-decoration:none; }
+  #outlook a { padding:0; }
+  .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height:inherit; }
+  u + #body a, #MessageViewBody a { color:inherit; text-decoration:none; font-size:inherit; font-family:inherit; font-weight:inherit; line-height:inherit; }
+  .im { color:inherit !important; }
+
+  /* ---------- mobile ---------- */
+  @media only screen and (max-width:600px) {
+    .w-full      { width:100% !important; max-width:100% !important; }
+    .stack       { display:block !important; width:100% !important; max-width:100% !important; }
+    .stack img   { width:100% !important; max-width:100% !important; }
+    .p-mobile    { padding-left:20px !important; padding-right:20px !important; }
+    .card-mobile { padding:24px 20px !important; }
+    .full-bleed  { padding-left:0 !important; padding-right:0 !important; }
+    .full-bleed img { border-radius:0 !important; }
+    .center-mobile { text-align:center !important; }
+    .h-mobile    { height:24px !important; line-height:24px !important; }
+    .hide-mobile { display:none !important; }
+    .p-logo     { padding-left:16px !important; padding-right:16px !important; }
+    .thumb-cell  { width:88px !important; }
+    .thumb       { width:88px !important; max-width:88px !important; height:88px !important; }
+    .thumb-gap   { width:16px !important; }
+    .t-hero      { font-size:26px !important; line-height:33px !important; }
+    .t-h2        { font-size:23px !important; line-height:29px !important; }
+    .t-h3        { font-size:19px !important; line-height:25px !important; }
+    .order-img   { display:table-header-group !important; }
+  }
+
+  /* ---------- dark mode ---------- */
+  @media (prefers-color-scheme: dark) {
+    .dm-page    { background-color:#1A1A1A !important; }
+    .dm-canvas  { background-color:#1A1A1A !important; }
+    .dm-surface { background-color:#242424 !important; }
+    .dm-ink     { color:#F5F5F5 !important; }
+    .dm-body    { color:#C9C9C9 !important; }
+    .dm-muted   { color:#8F8F8F !important; }
+    .dm-hair    { background-color:#333333 !important; border-color:#333333 !important; }
+    .dm-btn     { background-color:#FFFFFF !important; color:#18181B !important; }
+    .dm-accent  { color:#D5BFFF !important; }
+    .dm-tag     { background-color:#262030 !important; }
+    .dm-logo    { background-color:#FFFFFF !important; }
+    .dm-logo-claro  { display:none !important; }
+    .dm-logo-escuro { display:block !important; max-height:none !important; }
+  }
+  [data-ogsc] .dm-page    { background-color:#1A1A1A !important; }
+  [data-ogsc] .dm-canvas  { background-color:#1A1A1A !important; }
+  [data-ogsc] .dm-surface { background-color:#242424 !important; }
+  [data-ogsc] .dm-ink     { color:#F5F5F5 !important; }
+  [data-ogsc] .dm-body    { color:#C9C9C9 !important; }
+  [data-ogsc] .dm-btn     { background-color:#FFFFFF !important; color:#18181B !important; }
+  [data-ogsc] .dm-accent  { color:#D5BFFF !important; }
+  [data-ogsc] .dm-tag     { background-color:#262030 !important; }
+  [data-ogsc] .dm-muted   { color:#8F8F8F !important; }
+  [data-ogsc] .dm-logo-claro  { display:none !important; }
+  [data-ogsc] .dm-logo-escuro { display:block !important; max-height:none !important; }
+</style>
+</head>
+
+<body id="body" class="dm-page" style="margin:0;padding:0;width:100%;background-color:#FAF5FF;">
+
+<!-- PREHEADER: 60-90 caracteres. Aparece na caixa de entrada, nunca no corpo. -->
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">
+  <span data-slot="preheader">[Preheader: 60 a 90 caracteres que completam o assunto na caixa de entrada]</span>
+  &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+</div>
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="dm-page" style="background-color:#FAF5FF;">
+  <tr>
+    <td align="center" style="padding:0;">
+
+      <!--[if mso]><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" align="center"><tr><td><![endif]-->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="w-full dm-canvas" style="width:100%;max-width:600px;background-color:#FAF5FF;">
+
+<!-- 01 · header: faixa roxa com o logo branco + imagem de abertura, um card só -->
+<tr>
+  <td class="p-mobile" style="padding:28px 32px 24px 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;border-radius:20px;">
+      <tr>
+        <td align="center" valign="middle" bgcolor="#9934FF" style="padding:28px 28px;background-color:#9934FF;border-radius:20px 20px 0 0;">
+          <!-- Tabela interna centralizada: <img> com display:block não obedece ao align do <td>. -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td align="center">
+                <a href="https://www.optimall.com.br" target="_blank"><img src="https://marcas.taclalabs.workers.dev/optimall/email/logo-optimall-branco.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /></a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- IMAGEM de abertura — colada no logo e nas bordas do card -->
+      <tr>
+        <td align="center" style="padding:0;font-size:0;line-height:0;">
+          <img data-slot="imagem-abertura" src="" width="536" alt="[Descrição da imagem de abertura: 16:9, arquivo com no mínimo 1072 px de largura]" style="display:block;border:0;outline:none;text-decoration:none;width:100%;max-width:536px;height:auto;border-radius:0 0 20px 20px;" />
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- card de conteúdo: do título aos números, num card branco; capa e rodapé ficam fora -->
+<tr>
+  <td class="p-mobile" style="padding:0 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#FFFFFF" class="dm-surface" style="width:100%;background-color:#FFFFFF;border-radius:20px;">
+<tr><td height="40" class="h-mobile" style="height:40px;line-height:40px;font-size:0;mso-line-height-rule:exactly;">&nbsp;</td></tr>
+
+<!-- 02 · headline -->
+
+<tr>
+  <td align="center" class="p-mobile" style="padding:8px 40px 24px 40px;">
+    <h1 class="t-hero dm-ink" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:30px;line-height:38px;font-weight:600;color:#18181B;letter-spacing:-0.4px;text-align:center;"><span data-slot="titulo">[Manchete de abertura, até 60 caracteres]</span></h1>
+  </td>
+</tr>
+
+<!-- 04 · texto + CTA -->
+
+<tr>
+  <td align="center" class="p-mobile" style="padding:24px 48px 0 48px;">
+    <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:25px;font-weight:400;color:#353E4F;text-align:center;"><span data-slot="texto-abertura">[Texto de apoio: 1 a 3 frases, até 200 caracteres, que levam ao CTA]</span></p>
+  </td>
+</tr>
+<tr>
+  <td align="center" style="padding:24px 32px 0 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+      <tr>
+        <td align="center" bgcolor="#9934FF" style="border-radius:100px;">
+          <!--[if mso]>
+          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.optimall.com.br/fale-conosco" style="height:46px;v-text-anchor:middle;width:245px;" arcsize="50%" stroke="f" fillcolor="#9934FF">
+            <w:anchorlock/>
+            <center style="color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;">Fale com um consultor</center>
+          </v:roundrect>
+          <![endif]-->
+          <!--[if !mso]><!-->
+          <a href="https://www.optimall.com.br/fale-conosco" target="_blank" style="display:inline-block;padding:15px 30px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:16px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:100px;background-color:#9934FF;mso-hide:all;">Fale com um consultor</a>
+          <!--<![endif]-->
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr><td height="32" class="h-mobile" style="height:32px;line-height:32px;font-size:0;mso-line-height-rule:exactly;">&nbsp;</td></tr>
+
+<!-- 07 · artigos alternados: imagem quadrada à esquerda no 1, à direita no 2 -->
+
+<tr>
+  <td class="p-mobile" style="padding:0 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+      <tr>
+        <td class="stack" width="248" valign="top" style="width:248px;">
+          <img data-slot="artigo-1-imagem" src="" width="248" alt="[Descrição da imagem do artigo 1: quadrada, no mínimo 496 × 496]" style="display:block;border:0;outline:none;text-decoration:none;width:100%;max-width:248px;height:auto;border-radius:14px;" />
+        </td>
+        <td class="hide-mobile" width="24" style="width:24px;font-size:0;line-height:0;">&nbsp;</td>
+        <td class="stack center-mobile" valign="middle" style="padding:0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+            <tr><td height="16" class="hide-mobile" style="height:0;line-height:0;font-size:0;">&nbsp;</td></tr>
+            <tr>
+              <td style="padding:20px 0 0 0;">
+                <h3 class="t-h3 dm-ink" style="margin:0 0 8px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:20px;line-height:26px;font-weight:600;color:#18181B;letter-spacing:-0.2px;"><span data-slot="artigo-1-titulo">[Título do artigo 1, até 40 caracteres]</span></h3>
+                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#353E4F;"><span data-slot="artigo-1-texto">[Texto do artigo 1: até 3 linhas, cerca de 160 caracteres]</span></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr><td height="40" class="h-mobile" style="height:40px;line-height:40px;font-size:0;mso-line-height-rule:exactly;">&nbsp;</td></tr>
+
+<tr>
+  <td class="p-mobile" style="padding:0 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" dir="rtl" style="width:100%;">
+      <tr>
+        <td class="stack" width="248" valign="top" dir="ltr" style="width:248px;">
+          <img data-slot="artigo-2-imagem" src="" width="248" alt="[Descrição da imagem do artigo 2: quadrada, no mínimo 496 × 496]" style="display:block;border:0;outline:none;text-decoration:none;width:100%;max-width:248px;height:auto;border-radius:14px;" />
+        </td>
+        <td class="hide-mobile" width="24" dir="ltr" style="width:24px;font-size:0;line-height:0;">&nbsp;</td>
+        <td class="stack center-mobile" valign="middle" dir="ltr" style="padding:0;text-align:left;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" dir="ltr" style="width:100%;">
+            <tr>
+              <td style="padding:20px 0 0 0;">
+                <h3 class="t-h3 dm-ink" style="margin:0 0 8px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:20px;line-height:26px;font-weight:600;color:#18181B;letter-spacing:-0.2px;"><span data-slot="artigo-2-titulo">[Título do artigo 2, até 40 caracteres]</span></h3>
+                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:23px;font-weight:400;color:#353E4F;"><span data-slot="artigo-2-texto">[Texto do artigo 2: até 3 linhas, cerca de 160 caracteres]</span></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr><td height="32" class="h-mobile" style="height:32px;line-height:32px;font-size:0;mso-line-height-rule:exactly;">&nbsp;</td></tr>
+
+<!-- 08 · destaque de números (variante A) -->
+
+<tr>
+  <td class="p-mobile" style="padding:0 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F3E8FF" class="dm-tag" style="width:100%;background-color:#F3E8FF;border-radius:20px;">
+      <tr>
+        <td class="card-mobile" style="padding:32px 24px;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+            <tr>
+              <td class="stack" width="33.33%" align="center" valign="top" style="width:33.33%;padding:8px 8px;">
+                <p class="dm-accent" style="margin:0 0 4px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">+260</p>
+                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color:#353E4F;text-align:center;">campanhas realizadas</p>
+              </td>
+              <td class="stack" width="33.33%" align="center" valign="top" style="width:33.33%;padding:8px 8px;">
+                <p class="dm-accent" style="margin:0 0 4px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">+3,8 milhões</p>
+                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color:#353E4F;text-align:center;">de compras registradas</p>
+              </td>
+              <td class="stack" width="33.33%" align="center" valign="top" style="width:33.33%;padding:8px 8px;">
+                <p class="dm-accent" style="margin:0 0 4px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:600;color:#9025F4;text-align:center;letter-spacing:-0.5px;">+R$ 980 milhões</p>
+                <p class="dm-body" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:20px;font-weight:400;color:#353E4F;text-align:center;">em GMV (vendas processadas)</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<tr><td height="40" class="h-mobile" style="height:40px;line-height:40px;font-size:0;mso-line-height-rule:exactly;">&nbsp;</td></tr>
+    </table>
+  </td>
+</tr>
+<!-- fim do card de conteúdo -->
+
+<tr><td height="32" class="h-mobile" style="height:32px;line-height:32px;font-size:0;mso-line-height-rule:exactly;">&nbsp;</td></tr>
+
+<!-- 90 · redes -->
+
+<tr>
+  <td class="p-mobile" style="padding:0 32px 24px 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+      <tr>
+        <td align="left" valign="middle">
+          <img class="dm-logo-claro" src="https://marcas.taclalabs.workers.dev/optimall/email/logo-optimall.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" />
+          <!--[if !mso]><!--><img class="dm-logo-escuro" src="https://marcas.taclalabs.workers.dev/optimall/email/logo-optimall-branco.png" width="143" height="24" alt="Optimall" style="display:none;max-height:0;overflow:hidden;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /><!--<![endif]-->
+        </td>
+        <td align="right" valign="middle">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right">
+            <tr>
+              <td style="padding:0 0 0 16px;"><a href="https://www.instagram.com/optimall.br/" target="_blank"><img src="https://marcas.taclalabs.workers.dev/optimall/email/instagram-marca.png" width="24" height="24" alt="Instagram" style="display:block;border:0;width:24px;height:24px;" /></a></td>
+              <td style="padding:0 0 0 16px;"><a href="https://www.linkedin.com/company/optimall-sistemas/about/" target="_blank"><img src="https://marcas.taclalabs.workers.dev/optimall/email/linkedin-marca.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;width:24px;height:24px;" /></a></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+<!-- 91 · rodapé legal -->
+
+<tr>
+  <td class="p-mobile" style="padding:0 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+      <tr><td height="1" class="dm-hair" style="height:1px;line-height:1px;font-size:0;background-color:#E3DDF1;">&nbsp;</td></tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td align="center" class="p-mobile" style="padding:24px 32px 40px 32px;">
+    <p class="dm-muted" style="margin:0 0 10px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;font-weight:600;color:#525A6F;text-align:center;">&copy; <span data-slot="ano">2026</span> - Optimall</p>
+    <p class="dm-muted" style="margin:0 0 10px 0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;font-weight:400;color:#525A6F;text-align:center;"><span data-slot="motivo">Você recebeu este e-mail porque [é gestor de um shopping parceiro do Optimall].</span></p>
+    <p class="dm-muted" style="margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;font-weight:400;color:#525A6F;text-align:center;"><a href="https://www.optimall.com.br/politica-de-privacidade" target="_blank" style="color:#525A6F;text-decoration:underline;">Política de Privacidade</a></p>
+  </td>
+</tr>
+
+      </table>
+      <!--[if mso]></td></tr></table><![endif]-->
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

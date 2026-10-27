@@ -108,6 +108,28 @@ O logo **não é monocromático**: não se pinta por `currentColor`, não se tro
 `filter`, não se redesenha. Usa-se a versão certa para o fundo. No deck e no post ele entra
 como `<symbol>` do template (`#logo-optimall` e `#logo-optimall-branco`).
 
+## Assinatura "Uma solução Optimall"
+
+Vai em toda peça das marcas que o Optimall assina — hoje, o **Byfrost**. A marca assinada fala
+primeiro; o Optimall assina no fim da leitura. Arquivos em `assets/assinatura/`, publicados no
+hub de marcas nas mesmas chaves que o Byfrost usa
+(`https://marcas.taclalabs.workers.dev/optimall/assinatura/optimall-assinatura-<cor>.svg`, com
+PNG de 600 e 1200 px).
+
+| Arquivo | Onde |
+|---|---|
+| `optimall-assinatura-branco.svg` | Arquivo oficial. Fundo roxo, degradê, foto ou fundo escuro |
+| `optimall-assinatura-preto.svg` | A branca em preto. Fundo branco ou claro: app, PDFs do sistema, impressos |
+| `optimall-assinatura-colorido.svg` | "Uma solução" em grafite `#525A6F` + o logo colorido. Só fundo branco, em e-mail e material externo. Nunca sobre degradê nem colada a outro logo colorido |
+
+- **Mínimo:** 140 px de largura na tela e 35 mm no impresso. Área livre em volta: a altura dela.
+- **Hierarquia:** sempre menor que o logo da marca assinada, no fim da leitura — rodapé, pé do
+  painel, último slide. Nunca no cabeçalho nem no lugar do logo.
+- **Use o arquivo.** Não reescreva "Uma solução" em texto, não separe o símbolo do texto, não
+  recolora.
+- Não vai em app icon, favicon, webclip nem avatar.
+- A colorida usa no símbolo o mesmo lilás do logo oficial (`#BD7CFF`).
+
 ## Grafismos
 
 A linguagem visual do Optimall (deck e post) — degradê radial roxo, pattern de pontos lilás
@@ -120,6 +142,7 @@ vidro sobre lavanda, pílulas de número, chips de ícone roxos. Arquivos em
 | Pasta | O que tem | No repositório? |
 |---|---|---|
 | `header/` | Logo colorido, branco e preto, símbolo (SVG) e PNGs 2x do e-mail | Sim |
+| `assinatura/` | "Uma solução Optimall" em preto, branco e colorido (SVG) | Sim |
 | `icones/` | Ícones sociais roxos do e-mail (`<rede>-marca.png`) | Sim |
 | `icones-ui/` | Ícones HugeIcons bulk em `currentColor`, para chips de deck e post | Sim |
 | `clientes/` | Logos dos shoppings clientes: `<nome>-roxo.svg` (deck) e `<nome>.png` (cinza-azulado, do site) | Sim |

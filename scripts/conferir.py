@@ -137,6 +137,8 @@ def _sem_comentarios(html):
 
 def conferir_texto(texto, m):
     pend = []
+    # O endereço do hub de marcas é infraestrutura, não citação de marca.
+    texto = texto.replace("marcas.taclalabs.workers.dev", "")
     for termo in m.get("nao_pode_conter", []):
         n = len(re.findall(termo, texto, re.I))
         if n:
@@ -173,8 +175,16 @@ def conferir(html, m):
     secoes = re.findall(r'<section[^>]*class="[^"]*\b(slide|post)\b', limpo)
     peca_de_tela = bool(secoes)
     if peca_de_tela:
-        fora = sorted({s for s in re.findall(r'\bsrc="([^"]*)"', limpo)
-                       if not s.startswith(("assets/", "data:"))})
+        # Peça: imagem em assets/. Modelo do hub: imagem pelo endereço do hub, ou vazia num data-slot.
+        fora = set()
+        for tag in re.findall(r"<img\b[^>]*>", limpo, re.I):
+            src = (re.search(r'\bsrc="([^"]*)"', tag) or [None, None])[1]
+            if src is None or src.startswith(("assets/", "data:", "https://marcas.taclalabs.workers.dev/optimall/")):
+                continue
+            if src == "" and "data-slot=" in tag:
+                continue
+            fora.add(src or "(vazio)")
+        fora = sorted(fora)
         if fora:
             pend.append("imagem fora de assets/ (a peça não abre sozinha): " + ", ".join(fora))
     else:
@@ -187,9 +197,9 @@ def conferir(html, m):
         sem_role = [t for t in re.findall(r"<table\b[^>]*>", limpo, re.I) if 'role="presentation"' not in t]
         if sem_role:
             pend.append(f'{len(sem_role)} tabela(s) sem role="presentation"')
-        abre = len(re.findall(r"<!--\[if !mso\]>", html))
-        if abre != len(re.findall(r"<!--\[if !mso\]><!-->", html)) or \
-                abre != len(re.findall(r"<!--<!\[endif\]-->", html)):
+        abre = len(re.findall(r"<!--\[if !mso\]>", limpo))
+        if abre != len(re.findall(r"<!--\[if !mso\]><!-->", limpo)) or \
+                abre != len(re.findall(r"<!--<!\[endif\]-->", limpo)):
             pend.append("condicional do Outlook quebrado (<!--[if !mso]><!--> … <!--<![endif]-->): "
                         "o botão ou o trecho some fora do Outlook")
         botoes = len(re.findall(r"<v:roundrect\b", limpo))

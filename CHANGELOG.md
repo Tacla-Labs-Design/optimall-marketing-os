@@ -10,6 +10,30 @@ entra sozinho na próxima peça.
 
 ---
 
+## 2026-10-27 — O Optimall no hub de marcas, com a assinatura "Uma solução Optimall"
+
+O time passa a usar a marca também pelo hub (`https://marcas.taclalabs.workers.dev/optimall/`),
+que qualquer ferramenta lê sem clonar o repositório. Até aqui o Optimall estava no hub só de
+forma provisória, com o logo antigo e a assinatura publicados a partir de outro repositório.
+
+### Novo
+
+- **Assinatura "Uma solução Optimall"** em `brand/assets/assinatura/` (preto, branco e colorido)
+  e as regras dela em `brand/README.md`. A colorida usa no símbolo o lilás do logo oficial
+  (`#BD7CFF`), no lugar do `#C084FC` da versão anterior.
+- **`hub/`**: `BRAND.md`, guias de e-mail, apresentação, post e foto, e modelos HTML com
+  `data-slot` (e-mail, deck com os slides que não usam tela, post com os cards que não usam tela).
+- **`scripts/publicar`**: monta a pasta da marca, gera os PNGs dos logos e da assinatura, confere
+  que todo endereço citado existe e que nenhuma tela ou foto de banco vai junto, e envia ao bucket
+  com o manifesto por último. As chaves da assinatura são as mesmas que o Byfrost já usa.
+
+### Mudado
+
+- `scripts/conferir.py` aceita imagem pelo endereço do hub e campo de imagem vazio com
+  `data-slot`, e conta os condicionais do Outlook só fora dos comentários.
+
+---
+
 ## 2026-10-27 — E-mail: logo e imagem de abertura num card só, conteúdo num card
 
 O desenho do e-mail ficou fixo em três partes, a pedido do maintainer na revisão da primeira
