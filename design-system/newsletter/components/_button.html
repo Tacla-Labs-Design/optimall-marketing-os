@@ -1,0 +1,49 @@
+<!-- ============================================================================
+     BOTÃO CTA (pill) — duas variantes. Escolher UMA por seção.
+     Ajustar sempre a largura do <v:roundrect> (width ≈ nº de caracteres * 9 + 56).
+
+     {{URL}} entra nos DOIS lugares: no <v:roundrect> (MSO) e no <a>. Esquecer um
+     deles deixa o botão morto em metade dos clients.
+
+     O CTA principal do Optimall é fixo: "Fale com um consultor", apontando para
+     https://www.optimall.com.br/fale-conosco (brand/marca.json → links.cta).
+     ============================================================================ -->
+
+<!-- VARIANTE A · CTA PRIMÁRIO — roxo de marca com texto BRANCO.
+     Branco sobre #9934FF dá 4,9:1. Texto escuro sobre o roxo é proibido.
+     Não leva .dm-btn: o roxo contrasta 3,56:1 com o fundo do dark mode #1A1A1A,
+     o bastante para a forma do botão, e o texto branco continua o mesmo. -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+    <td align="center" bgcolor="#9934FF" style="border-radius:100px;">
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{URL}}" style="height:46px;v-text-anchor:middle;width:240px;" arcsize="50%" stroke="f" fillcolor="#9934FF">
+        <w:anchorlock/>
+        <center style="color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;">{{LABEL}}</center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]><!-->
+      <a href="{{URL}}" target="_blank" style="display:inline-block;padding:15px 30px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:16px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:100px;background-color:#9934FF;mso-hide:all;">{{LABEL}}</a>
+      <!--<![endif]-->
+    </td>
+  </tr>
+</table>
+
+<!-- VARIANTE B · CTA SECUNDÁRIO — neutro escuro. Usar quando o roxo já aparece
+     forte na seção. Precisa da classe .dm-btn nos dois elementos, senão vira
+     preto sobre preto no dark mode. -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+    <td align="center" bgcolor="#18181B" class="dm-btn" style="border-radius:100px;">
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{URL}}" style="height:46px;v-text-anchor:middle;width:240px;" arcsize="50%" stroke="f" fillcolor="#18181B">
+        <w:anchorlock/>
+        <center style="color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;">{{LABEL}}</center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]><!-->
+      <a href="{{URL}}" target="_blank" class="dm-btn" style="display:inline-block;padding:15px 30px;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:16px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:100px;background-color:#18181B;mso-hide:all;">{{LABEL}}</a>
+      <!--<![endif]-->
+    </td>
+  </tr>
+</table>

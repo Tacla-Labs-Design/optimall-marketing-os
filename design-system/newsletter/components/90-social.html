@@ -1,0 +1,35 @@
+<!-- ============================================================================
+     90 · REDES SOCIAIS — obrigatório em toda peça, logo antes do 91-footer-legal.
+     Logo do Optimall à esquerda, ícones das redes à direita, numa linha só também no
+     mobile (143px de logo + 2 ícones com gap de 16px cabem nos 280px úteis de 320px).
+
+     Redes oficiais: Instagram e LinkedIn (brand/marca.json → redes). O Optimall não tem
+     Facebook nem Spotify: não acrescentar <td> de rede que não existe.
+     Ícones: brand/assets/icones/<rede>-marca.png, 24x24 (arquivo 2x), com o nome da rede
+     no alt. URLs fixas — não se inventam.
+
+     Logo: colorido no modo claro; no escuro, o branco oficial (.dm-logo-claro some e
+     .dm-logo-escuro aparece, pelo @media do template). Onde o cliente não troca — Gmail,
+     Outlook —, fica o colorido, que é o comportamento de sempre. O branco vem escondido
+     por estilo inline e fora do Outlook, para nunca aparecer sobre o fundo claro.
+     ============================================================================ -->
+<tr>
+  <td class="p-mobile" style="padding:0 32px 24px 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;">
+      <tr>
+        <td align="left" valign="middle">
+          <img class="dm-logo-claro" src="../../brand/assets/header/logo-optimall.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" />
+          <!--[if !mso]><!--><img class="dm-logo-escuro" src="../../brand/assets/header/logo-optimall-branco.png" width="143" height="24" alt="Optimall" style="display:none;max-height:0;overflow:hidden;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /><!--<![endif]-->
+        </td>
+        <td align="right" valign="middle">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right">
+            <tr>
+              <td style="padding:0 0 0 16px;"><a href="https://www.instagram.com/optimall.br/" target="_blank"><img src="../../brand/assets/icones/instagram-marca.png" width="24" height="24" alt="Instagram" style="display:block;border:0;width:24px;height:24px;" /></a></td>
+              <td style="padding:0 0 0 16px;"><a href="https://www.linkedin.com/company/optimall-sistemas/about/" target="_blank"><img src="../../brand/assets/icones/linkedin-marca.png" width="24" height="24" alt="LinkedIn" style="display:block;border:0;width:24px;height:24px;" /></a></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>

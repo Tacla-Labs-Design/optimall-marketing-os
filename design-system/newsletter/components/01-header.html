@@ -1,0 +1,31 @@
+<!-- ============================================================================
+     01 · HEADER — obrigatório em toda peça. Logo do Optimall centralizado numa placa
+     branca de raio 20px. Padding interno 32px 28px.
+
+     Logo: versão positiva (tricolor, para fundo claro), em PNG porque SVG não renderiza
+     em e-mail. Exibido a 143x24 (arquivo 2x, brand/assets/header/logo-optimall.png).
+     O caminho relativo vale a partir de saida/<slug>/index.html; na entrega, o logo é um
+     dos arquivos a hospedar.
+
+     A placa fica branca também no dark mode, sem classe dm-*: assim o logo colorido fica
+     legível em todo cliente, sem depender de troca de imagem por CSS, que falha no Gmail e
+     no Outlook (guidelines/email-compat.md).
+     ============================================================================ -->
+<tr>
+  <td class="p-mobile" style="padding:28px 32px 24px 32px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#FFFFFF" style="width:100%;background-color:#FFFFFF;border-radius:20px;">
+      <tr>
+        <td align="center" valign="middle" style="padding:32px 28px;">
+          <!-- Tabela interna centralizada: <img> com display:block não obedece ao align do <td>. -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td align="center">
+                <a href="https://www.optimall.com.br" target="_blank"><img src="../../brand/assets/header/logo-optimall.png" width="143" height="24" alt="Optimall" style="display:block;border:0;outline:none;text-decoration:none;width:143px;height:24px;" /></a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>

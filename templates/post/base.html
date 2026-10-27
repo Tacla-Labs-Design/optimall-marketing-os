@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{TITULO_DO_POST}}</title>
+<!-- Halyard Text: kit do Adobe Fonts do Optimall, carregado da web. A peça precisa de internet
+     para abrir e exportar com a letra certa (scripts/exportar.py confere). -->
+<link rel="stylesheet" href="https://use.typekit.net/kor2grf.css">
+<style>
+/* ---------------------------------------------------------------------------
+   TOKENS — design-system/post/tokens.md (cores: design-system/apresentacao/tokens.md)
+   Nunca escrever cor solta nos posts: tudo por var(--token).
+   --------------------------------------------------------------------------- */
+:root{
+  /* marca */
+  --roxo:#9934FF;            /* cor da marca: fundo, chip, ícone, grafismo */
+  --roxo-texto:#9025F4;      /* roxo quando é TEXTO sobre fundo claro (4,5:1+) */
+  --roxo-luz:#AD5CFF;        /* centro do degradê radial do fundo roxo */
+  --roxo-700:#821FE5;        /* destaque em título, pílula de número */
+  --roxo-500:#A855F7;        /* régua, ponto de status, conector */
+  --roxo-sombra:#4F009E;     /* só no símbolo gigante (marca d'água) */
+  --disco-meio:#AB57FF;      /* disco do símbolo */
+  --disco-borda:#BC7AFF;
+  --roxo-fundo-escuro:#7500EB; /* fim do degradê vertical do post roxo */
+  --roxo-vidro-1:rgba(63,0,128,.5);   /* painel de vidro escuro do post de citação */
+  --roxo-vidro-2:rgba(114,0,229,.5);
+  --lilas-painel:#BD7CFF;      /* painel de destaque sobre o roxo */
+  --lilas-pontos:#E0C3FF;      /* pontos e anéis do post */
+  --lavanda-luz:#FCFAFF;       /* centro do degradê claro do post */
+
+  /* lilases e lavandas — fundos claros e grafismo */
+  --lilas-400:#C084FC;       /* pontos sobre roxo, tag grande, linha tracejada */
+  --lilas-300:#D8B4FE;       /* pontos, tag de status */
+  --lilas-200:#E9D5FF;       /* tag, chip claro, pontos, borda de card */
+  --lilas-borda:#E6CCFF;     /* borda de grade e de card */
+  --lavanda:#F3E8FF;         /* borda do degradê claro, painel de lista */
+  --lavanda-50:#FAF5FF;
+
+  /* neutros */
+  --branco:#FFFFFF;
+  --titulo-1:#353E4F;        /* degradê do título sobre claro */
+  --titulo-2:#525A6F;
+  --tinta:#181D27;           /* título de card */
+  --texto:#374151;           /* corpo sobre claro */
+  --apoio:#525A6F;           /* corpo de card, legenda */
+  --borda-card:#E2E8F0;
+  --borda-device:#E5E5E5;
+
+  /* transparências (sempre derivadas do branco ou do roxo da marca) */
+  --branco-90:rgba(255,255,255,.9);
+  --branco-80:rgba(255,255,255,.8);
+  --branco-15:rgba(255,255,255,.15);
+  --branco-12:rgba(255,255,255,.12);
+  --branco-10:rgba(255,255,255,.10);
+  --branco-0:rgba(255,255,255,0);
+  --roxo-10:rgba(153,52,255,.10);
+  --roxo-07:rgba(153,52,255,.07);
+  --roxo-0:rgba(153,52,255,0);
+  --sombra:rgba(22,52,80,.1);
+
+  /* degradês */
+  --fundo-roxo:var(--roxo);
+  --fundo-roxo-desce:linear-gradient(to bottom,var(--roxo),var(--roxo-fundo-escuro));
+  --fundo-claro:radial-gradient(540px 675px at 50% 50%,var(--lavanda-luz) 0%,var(--lavanda) 100%);
+    --titulo-degrade:linear-gradient(45deg,var(--titulo-1) 0.5%,var(--titulo-2) 100%);
+  --regua:linear-gradient(to right,var(--roxo-500),rgba(168,85,247,0));
+  --regua-centro:linear-gradient(to right,rgba(168,85,247,0),var(--roxo-500) 50%,rgba(168,85,247,0));
+  --regua-branca:linear-gradient(to right,var(--branco),var(--branco-0));
+  --disco:radial-gradient(circle at 0 0,var(--roxo) 0%,var(--disco-meio) 50%,var(--disco-borda) 100%);
+
+  /* forma */
+  --r-pill:9999px;
+  --r-painel:72px;
+  --r-card:48px;
+  --r-card-md:42px;
+  --r-card-sm:32px;
+  --r-chip:24px;
+  --r-chip-sm:20px;
+  --safe:64px;
+
+  /* tipografia — Halyard Text, pelo kit do Adobe Fonts (link no <head>) */
+  --font:'halyard-text-variable','Halyard Text','Helvetica Neue',Arial,sans-serif;
+  --w-livro:350;      /* Halyard "Book" */
+  --w-normal:400;
+  --w-medio:500;
+  --w-semi:600;
+  --w-negrito:700;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+.post *{min-width:0}
+html,body{background:#2A2A2A;font-family:var(--font);-webkit-font-smoothing:antialiased}
+
+/* --- o canvas fixo: feed 4:5 --------------------------------------------- */
+.grade{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;padding:40px}
+.post{
+  position:relative;width:1080px;height:1350px;overflow:hidden;isolation:isolate;flex:none;
+  background:var(--lavanda);color:var(--texto);font-family:var(--font);
+}
+.post > *{position:absolute}
+/* prévia: a grade encolhe para caber na tela; o export fotografa em tamanho real */
+@media screen{ .grade{zoom:.42} }
+
+/* --- fundos -------------------------------------------------------------- */
+.post--roxo{background:var(--fundo-roxo);color:var(--branco)}
+.post--roxo-desce{background:var(--fundo-roxo-desce);color:var(--branco)}
+.post--lavanda{background:var(--lavanda)}
+.post--claro{background:var(--fundo-claro)}
+.post--branco{background:var(--branco)}
+
+/* --- grafismos ----------------------------------------------------------- */
+/* Pattern de pontos: 2,5px a cada 19,17px, sumindo em direção ao centro.
+   Posição e tamanho vêm do slide; a cor, da variante. */
+.pontos{width:1600px;height:1200px;z-index:0;pointer-events:none;
+  background-image:radial-gradient(circle,var(--pontos-cor,var(--lilas-300)) 1.25px,transparent 1.5px);
+  background-size:19.1667px 19.1667px;background-position:-5px -5px;
+  -webkit-mask-image:radial-gradient(626px 1200px at 50% 0,#000 0%,transparent 95%);
+          mask-image:radial-gradient(626px 1200px at 50% 0,#000 0%,transparent 95%);
+  -webkit-mask-size:1440px 1440px;mask-size:1440px 1440px;
+  -webkit-mask-position:80px 0;mask-position:80px 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.pontos--baixo{-webkit-mask-image:radial-gradient(626px 1200px at 50% 100%,#000 0%,transparent 95%);
+          mask-image:radial-gradient(626px 1200px at 50% 100%,#000 0%,transparent 95%);
+  -webkit-mask-position:80px -240px;mask-position:80px -240px}
+.pontos--sobre-roxo{--pontos-cor:var(--lilas-400)}
+.pontos--200{--pontos-cor:var(--lilas-200)}
+.pontos--300{--pontos-cor:var(--lilas-300)}
+
+/* Anéis concêntricos: roxo 7% → transparente, de cima para baixo. */
+.aneis{border-radius:50%;z-index:0;pointer-events:none}
+.aneis,.aneis::before,.aneis::after{background:linear-gradient(to bottom,var(--roxo-07),var(--roxo-0))}
+.aneis::before,.aneis::after{content:"";position:absolute;border-radius:50%}
+.aneis::before{inset:12%}
+.aneis::after{inset:26%}
+
+/* Símbolo gigante (marca d'água sobre o roxo): assets/simbolo-gigante.svg */
+.marca-dagua{z-index:0;pointer-events:none;display:block}
+
+/* Disco do símbolo */
+.disco{border-radius:var(--r-pill);background:var(--disco);display:flex;align-items:center;justify-content:center;z-index:2}
+
+/* --- tipografia de post (mín. 24px — guidelines/canvas.md) -------------- */
+.t-display{font-size:96px;line-height:1.05;font-weight:var(--w-normal);letter-spacing:-0.02em}
+.t-titulo-lg{font-size:88px;line-height:1.1;font-weight:var(--w-normal);letter-spacing:-0.03em}
+.t-titulo{font-size:64px;line-height:1.05;font-weight:var(--w-normal);letter-spacing:-0.02em;
+  background:var(--titulo-degrade);-webkit-background-clip:text;background-clip:text;color:transparent}
+.post--roxo .t-titulo{background:none;color:var(--branco)}
+.t-titulo-md{font-size:60px;line-height:1.1;font-weight:var(--w-normal);letter-spacing:-0.02em}
+.t-citacao{font-size:80px;line-height:1.05;font-weight:var(--w-semi);letter-spacing:-0.03em}
+.t-citacao-md{font-size:56px;line-height:1.1;font-weight:var(--w-livro);letter-spacing:-0.02em}
+.t-sub{font-size:36px;line-height:1.2;font-weight:var(--w-livro);letter-spacing:-0.02em;color:var(--apoio)}
+.t-card{font-size:40px;line-height:1.2;font-weight:var(--w-semi)}
+.t-corpo{font-size:36px;line-height:1.2;font-weight:var(--w-livro)}
+.t-corpo-sm{font-size:28px;line-height:1.4;font-weight:var(--w-livro)}
+.t-lista{font-size:24px;line-height:1.5;font-weight:var(--w-livro);letter-spacing:-0.02em}
+.t-url{font-size:30px;line-height:1.2;font-weight:var(--w-livro)}
+.t-autor{font-size:30px;line-height:1.2;font-weight:var(--w-negrito)}
+.t-cargo{font-size:24px;line-height:1.2;font-weight:var(--w-livro)}
+.t-cta{font-size:35px;line-height:1;font-weight:var(--w-livro);letter-spacing:-0.02em}
+b,strong{font-weight:var(--w-negrito)}
+
+/* --- tag (eyebrow) ------------------------------------------------------- */
+.tag{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:var(--r-pill);
+  background:var(--lilas-200);color:var(--roxo-texto);
+  font-size:16px;line-height:1.1;font-weight:var(--w-semi);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.tag--status{background:var(--lilas-300);color:var(--branco)}
+.tag--status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--roxo-500)}
+.tag--lg{background:var(--lilas-400);color:var(--branco);font-size:18px}
+
+/* --- réguas -------------------------------------------------------------- */
+.regua{width:400px;height:4px;border-radius:48px 0 0 48px;background:var(--regua);flex:none}
+.regua--centro{background:var(--regua-centro);margin:0 auto}
+.post--roxo .regua{background:var(--regua-branca)}
+
+/* --- chips de ícone ------------------------------------------------------ */
+/* Ícone: HugeIcons bulk (assets de brand/assets/icones-ui/), sempre em currentColor. */
+.chip{flex:none;display:flex;align-items:center;justify-content:center;
+  width:80px;height:80px;border-radius:var(--r-chip);background:var(--roxo);color:var(--branco);
+  border:2px solid var(--branco-12)}
+.chip svg{width:53%;height:53%;display:block}
+.chip--lg{width:120px;height:120px;border-radius:40px}
+.chip--xl{width:112px;height:112px;border-radius:28px}
+.chip--claro{width:64px;height:64px;padding:12px;border-radius:var(--r-chip-sm);background:var(--lilas-200);color:var(--roxo);border:0}
+.chip--claro svg{width:32px;height:32px}
+.chip--claro-sm{width:56px;height:56px}
+.chip--claro-xs{width:48px;height:48px;padding:8px}
+.chip--branco{width:104px;height:104px;border-radius:30px;background:var(--branco);color:var(--roxo);border:0;
+  box-shadow:9px 27px 99px -13px var(--sombra)}
+
+/* --- superfícies --------------------------------------------------------- */
+.card{background:var(--branco);border-radius:var(--r-card);padding:32px}
+.card--borda{border:2px solid var(--lilas-200);border-radius:var(--r-card-md)}
+.card--sombra{box-shadow:7px 22px 80px -10px var(--sombra)}
+.vidro{background:linear-gradient(to bottom,var(--branco-15),rgba(153,153,153,.15))}
+.painel-lista{background:linear-gradient(to bottom,var(--lavanda),rgba(243,232,255,0));border-radius:0 40px 40px 0;
+  padding:48px 80px 48px 64px}
+
+/* Moldura de tela (painel web): branca, borda fina, raio 40 */
+.device{background:var(--branco);border:1px solid var(--borda-device);border-radius:40px;padding:9px;overflow:hidden}
+.device img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:32px}
+
+/* --- logo ----------------------------------------------------------------
+   Versões oficiais (Figma [BRAND] Optimall – ID Assets): colorido (fundo claro) e branco (fundo roxo).
+   Nunca recolorir, nunca filter, nunca currentColor. */
+.logo{display:block;height:auto;flex:none}
+
+/* --- número do card no carrossel (só quando a ordem importa) --------------- */
+.num-card{right:64px;top:64px;font-size:24px;line-height:1;color:var(--apoio)}
+.post--roxo .num-card{color:var(--branco)}
+</style>
+</head>
+<body>
+
+<!-- Logos do Optimall, uma vez só. Fonte: brand/assets/header/.
+     Uso: <svg class="logo" style="width:443px" viewBox="0 0 523 88" role="img" aria-label="Optimall">
+            <title>Optimall</title><use href="#logo-optimall-branco"/></svg>
+     colorido e branco viewBox 0 0 523 88 · símbolo viewBox 0 0 40 40
+     Símbolo branco (sobre roxo): recorte do logo branco, com width/height no <use>:
+       <svg viewBox="0 0 36.2 24"><use href="#logo-optimall-branco" width="143" height="24"/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-optimall" viewBox="0 0 523 88"><path d="M88.7098 0.000315693C80.8482 -0.0104476 73.1288 2.09635 66.363 6.09931C72.9605 9.9867 78.4284 15.5293 82.2256 22.1785C86.0228 28.8277 88.0176 36.3531 88.0127 44.0098C88.0141 55.5603 83.4719 66.6479 75.3669 74.8784C67.262 83.109 56.2446 87.8221 44.6938 88H88.7098C100.38 88 111.573 83.366 119.827 75.1168C128.081 66.8676 132.721 55.6786 132.726 44.0098C132.726 32.3378 128.088 21.1438 119.834 12.8904C111.579 4.63702 100.384 0.000315693 88.7098 0.000315693Z" fill="#9934FF"/><path d="M66.3629 6.09903C59.597 2.09608 51.8776 -0.0107223 44.016 4.10349e-05C32.3422 4.10349e-05 21.1466 4.63675 12.892 12.8901C4.63738 21.1435 0 32.3375 0 44.0096C0.00513436 55.6783 4.64479 66.8673 12.8988 75.1165C21.1529 83.3657 32.3456 87.9998 44.016 87.9998H44.6937C56.2445 87.8218 67.262 83.1089 75.367 74.8783C83.4719 66.6478 88.0141 55.5602 88.0128 44.0097C88.0158 36.3533 86.0201 28.8287 82.2231 22.1798C78.4261 15.5309 72.9591 9.98789 66.3629 6.09903Z" fill="#525A6F"/><path d="M66.3629 6.09903C59.597 2.09608 51.8776 -0.0107223 44.016 4.10349e-05C32.3422 4.10349e-05 21.1466 4.63675 12.892 12.8901C4.63738 21.1435 0 32.3375 0 44.0096C0.00513436 55.6783 4.64479 66.8673 12.8988 75.1165C21.1529 83.3657 32.3456 87.9998 44.016 87.9998H44.6937C56.2445 87.8218 67.262 83.1089 75.367 74.8783C83.4719 66.6478 88.0141 55.5602 88.0128 44.0097C88.0158 36.3533 86.0201 28.8287 82.2231 22.1798C78.4261 15.5309 72.9591 9.98789 66.3629 6.09903Z" fill="#525A6F"/><path d="M88.0127 44.0097C88.0157 36.3533 86.0201 28.8287 82.223 22.1798C78.426 15.5309 72.9592 9.98802 66.363 6.09915C59.7618 9.98413 54.29 15.5256 50.4894 22.175C46.6887 28.8244 44.6909 36.351 44.6939 44.0097V87.9999C56.2446 87.8219 67.262 83.1088 75.3669 74.8783C83.4719 66.6477 88.0141 55.5601 88.0127 44.0097Z" fill="#BD7CFF"/><path d="M278.39 29.2587V49.839L278.396 49.8443C278.396 62.3867 283.836 70.8515 297.065 70.8515C302.293 70.8515 306.347 69.7787 309.121 68.706L306.56 57.1296C305.173 57.6686 303.356 57.8821 301.651 57.8821C297.703 57.8821 294.93 55.6352 294.93 49.6308V29.2641H307.415V21.6319C307.415 18.6857 305.035 16.2947 302.102 16.2947H294.93V0.000213623L279.352 5.33741V16.2947L272.355 16.8284V29.2587H278.39Z" fill="#525A6F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M182.836 15.0031C169.395 15.0031 156.909 25.1811 156.909 42.8686C156.909 60.5561 169.288 70.8408 182.836 70.8408C196.385 70.8408 208.87 60.5507 208.87 42.8686C208.87 25.1864 196.278 15.0031 182.836 15.0031ZM182.836 28.2927C189.026 28.2927 191.906 34.0782 191.906 42.8686C191.906 51.7657 189.026 57.4445 182.836 57.4445C176.647 57.4445 173.767 51.659 173.767 42.8686C173.767 34.0782 176.647 28.2927 182.836 28.2927Z" fill="#525A6F"/><path d="M317.329 16.2894H333.762V69.5599H317.329V16.2894Z" fill="#525A6F"/><path d="M348.734 16.2893H341.96V69.5599H358.393V33.8701C361.597 30.6517 364.476 29.0452 366.931 29.0452C371.203 29.0452 373.121 31.2922 373.121 38.6896V69.5599H389.66V33.8701C392.864 30.6517 395.637 29.0452 398.198 29.0452C402.358 29.0452 404.387 31.2922 404.387 38.6896V69.5599H420.82V36.5493C420.82 23.2544 415.699 15.0031 404.175 15.0031C397.13 15.0031 392.226 19.0753 387.636 23.7934C384.969 18.1093 380.059 15.0031 373.02 15.0031C365.98 15.0031 361.283 18.6484 357.017 22.9342H356.581V22.8968C355.907 19.0753 352.597 16.2893 348.734 16.2893Z" fill="#525A6F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M427.228 54.6638C427.228 43.4076 435.872 37.3019 456.784 35.1563C456.359 30.7638 454.117 28.1913 448.676 28.1913C445.627 28.1913 442.577 28.9545 439.145 30.4863C436.627 31.6071 433.667 30.5663 432.355 28.1272L429.045 21.9734C435.978 17.6877 443.555 15.0084 451.88 15.0084C465.54 15.0084 473.217 22.6193 473.217 39.3407V69.5653H459.775L459 66.9607C458.617 65.6798 457.076 65.1994 456.024 66.0214C452.225 68.9675 448.039 70.8515 443.029 70.8515C433.317 70.8515 427.239 63.5609 427.239 54.6691L427.228 54.6638ZM456.784 53.8045V45.3344C446.222 46.7274 443.018 49.6202 443.018 53.3722C443.018 56.4785 445.048 57.9835 448.671 57.9835C451.981 57.9835 454.218 56.377 456.779 53.8045H456.784Z" fill="#525A6F"/><path d="M481.426 0.000213623V69.5599H497.859V10.6746C497.859 4.77701 493.103 0.000213623 487.233 0.000213623L481.426 0.000213623Z" fill="#525A6F"/><path d="M506.067 69.5599V0.000213623L511.874 0.000213623C517.745 0.000213623 522.5 4.77701 522.5 10.6746V69.5599H506.067Z" fill="#525A6F"/><path fill-rule="evenodd" clip-rule="evenodd" d="M230.324 21.4344C234.382 17.6829 239.716 15.0039 245.155 15.0031C257.958 15.0047 265.852 25.6147 265.852 42.0146C265.852 60.3426 255.077 70.8462 243.659 70.8462C239.287 70.8462 235.307 69.0903 231.711 65.8666V88L215.277 82.6628V16.2893H224.49C226.966 16.2893 229.118 18.0132 229.67 20.4363L229.899 21.4344H230.324ZM231.716 54.1301C234.383 56.4838 237.156 57.2363 239.717 57.2363L239.722 57.247C244.844 57.247 248.898 53.0626 248.898 42.2388C248.898 32.9094 246.125 28.5169 240.254 28.5169C237.156 28.5169 234.595 29.9099 231.716 33.0161V54.1301Z" fill="#525A6F"/><path d="M245.155 15.0031H245.158H245.152H245.155Z" fill="#525A6F"/></symbol>
+  <symbol id="logo-optimall-branco" viewBox="0 0 523 88"><path d="M88.7096 0.000254658C80.8479 -0.0105086 73.1286 2.09629 66.3627 6.09925C72.9602 9.98664 78.4282 15.5292 82.2254 22.1784C86.0225 28.8276 88.0174 36.353 88.0124 44.0098C88.0138 55.5602 83.4716 66.6478 75.3667 74.8784C67.2617 83.1089 56.2444 87.822 44.6936 88H88.7096C100.38 88 111.573 83.3659 119.827 75.1167C128.081 66.8675 132.72 55.6785 132.726 44.0098C132.726 32.3377 128.088 21.1437 119.834 12.8904C111.579 4.63696 100.383 0.000254658 88.7096 0.000254658Z" fill="white"/><path opacity="0.7" d="M44.0151 4.1012e-05C51.3854 -0.0100497 58.6311 1.84207 65.0829 5.37188L66.3642 6.10041C59.7631 9.98539 54.2903 15.5269 50.4896 22.1762C46.6893 28.8253 44.6897 36.3512 44.6926 44.0094V87.999H44.0151C32.3451 87.9988 21.1519 83.3667 12.8981 75.1179C4.64404 66.8687 0.00513436 55.6781 0 44.0094C4.74093e-05 32.3375 4.63786 21.143 12.8924 12.8896C21.1467 4.63676 32.3419 0.000282712 44.0151 4.1012e-05Z" fill="white"/><path opacity="0.4" d="M66.3645 6.10034C72.9596 9.98893 78.4254 15.5312 82.222 22.179C86.019 28.8278 88.0164 36.3531 88.0134 44.0094C88.0148 55.5594 83.472 66.6464 75.3676 74.8769C67.2627 83.1075 56.2436 87.821 44.6929 87.9989V44.0094C44.69 36.3511 46.6896 28.8253 50.4899 22.1762C54.053 15.9426 59.0858 10.683 65.1399 6.84871L66.3645 6.10034Z" fill="white"/><path d="M278.39 29.2588V49.839L278.395 49.8443C278.395 62.3867 283.836 70.8515 297.065 70.8515C302.293 70.8515 306.347 69.7787 309.12 68.706L306.559 57.1296C305.173 57.6687 303.356 57.8821 301.65 57.8821C297.703 57.8821 294.929 55.6352 294.929 49.6308V29.2641H307.415V21.6319C307.415 18.6857 305.035 16.2947 302.102 16.2947H294.929V0.000213623L279.352 5.33741V16.2947L272.354 16.8284V29.2588H278.39Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M182.836 15.0031C169.394 15.0031 156.909 25.1811 156.909 42.8686C156.909 60.5561 169.288 70.8409 182.836 70.8409C196.384 70.8409 208.87 60.5508 208.87 42.8686C208.87 25.1864 196.278 15.0031 182.836 15.0031ZM182.836 28.2927C189.026 28.2927 191.905 34.0782 191.905 42.8686C191.905 51.7657 189.026 57.4445 182.836 57.4445C176.647 57.4445 173.767 51.659 173.767 42.8686C173.767 34.0782 176.647 28.2927 182.836 28.2927Z" fill="white"/><path d="M317.329 16.2894H333.762V69.56H317.329V16.2894Z" fill="white"/><path d="M348.734 16.2893H341.96V69.5599H358.393V33.8701C361.596 30.6517 364.476 29.0452 366.931 29.0452C371.202 29.0452 373.12 31.2922 373.12 38.6896V69.5599H389.66V33.8701C392.863 30.6517 395.637 29.0452 398.198 29.0452C402.358 29.0452 404.387 31.2922 404.387 38.6896V69.5599H420.82V36.5493C420.82 23.2544 415.698 15.0031 404.175 15.0031C397.13 15.0031 392.226 19.0753 387.635 23.7934C384.968 18.1093 380.059 15.0031 373.019 15.0031C365.98 15.0031 361.283 18.6484 357.017 22.9342H356.581V22.8968C355.906 19.0753 352.596 16.2893 348.734 16.2893Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M427.228 54.6638C427.228 43.4076 435.872 37.3019 456.784 35.1563C456.359 30.7638 454.117 28.1913 448.676 28.1913C445.626 28.1913 442.577 28.9545 439.145 30.4863C436.626 31.6071 433.667 30.5663 432.355 28.1272L429.045 21.9735C435.978 17.6877 443.554 15.0084 451.88 15.0084C465.539 15.0084 473.217 22.6193 473.217 39.3407V69.5653H459.775L458.999 66.9607C458.617 65.6798 457.076 65.1994 456.024 66.0214C452.225 68.9675 448.039 70.8516 443.028 70.8516C433.316 70.8516 427.238 63.5609 427.238 54.6692L427.228 54.6638ZM456.784 53.8045V45.3344C446.221 46.7274 443.018 49.6202 443.018 53.3722C443.018 56.4785 445.047 57.9835 448.671 57.9835C451.981 57.9835 454.217 56.377 456.778 53.8045H456.784Z" fill="white"/><path d="M481.425 0.000213623V69.5599H497.858V10.6746C497.858 4.77701 493.103 0.000213623 487.232 0.000213623L481.425 0.000213623Z" fill="white"/><path d="M506.067 69.5599V0.000213623L511.874 0.000213623C517.745 0.000213623 522.5 4.77701 522.5 10.6746V69.5599H506.067Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M230.324 21.4344C234.382 17.6829 239.715 15.0039 245.155 15.0031C257.958 15.0047 265.851 25.6147 265.851 42.0146C265.851 60.3426 255.077 70.8462 243.659 70.8462C239.287 70.8462 235.307 69.0903 231.71 65.8666V88L215.277 82.6628V16.2893H224.49C226.966 16.2893 229.118 18.0132 229.67 20.4363L229.899 21.4344H230.324ZM231.716 54.1301C234.383 56.4838 237.156 57.2363 239.717 57.2363L239.722 57.247C244.844 57.247 248.898 53.0627 248.898 42.2388C248.898 32.9094 246.124 28.5169 240.254 28.5169C237.156 28.5169 234.595 29.9099 231.716 33.0161V54.1301Z" fill="white"/><path d="M245.155 15.0031H245.157H245.152H245.155Z" fill="white"/></symbol>
+  <symbol id="simbolo-optimall" viewBox="0 0 40 40"><path d="M26.7348 7.00001C24.3655 6.99677 22.039 7.6317 20 8.83808C21.9883 10.0096 23.6362 11.68 24.7806 13.6839C25.9249 15.6878 26.5262 17.9557 26.5246 20.2633C26.525 23.7443 25.1562 27.0858 22.7135 29.5662C20.271 32.0467 16.9506 33.4671 13.4695 33.5207H26.7348C30.2519 33.5207 33.6251 32.1242 36.1126 29.6381C38.6002 27.152 39.9984 23.7799 40 20.2633C40 16.7457 38.6024 13.3721 36.1147 10.8847C33.627 8.39739 30.2529 7.00001 26.7348 7.00001Z" fill="#9934FF"/> <path d="M19.9999 8.83808C17.9609 7.6317 15.6345 6.99677 13.2652 7.00001C9.74706 7.00001 6.373 8.39739 3.88529 10.8847C1.39758 13.3721 0 16.7457 0 20.2633C0.00154736 23.7799 1.39981 27.152 3.88735 29.6381C6.3749 32.1242 9.74805 33.5207 13.2652 33.5207H13.4695C16.9506 33.4671 20.271 32.0468 22.7135 29.5663C25.1562 27.0858 26.525 23.7443 26.5246 20.2633C26.5256 17.9559 25.9241 15.6882 24.7798 13.6844C23.6355 11.6806 21.9879 10.0101 19.9999 8.83808Z" fill="#525A6F"/> <path d="M26.5246 20.2631C26.5256 17.9556 25.9241 15.688 24.7798 13.6841C23.6355 11.6804 21.9879 10.0099 20 8.83789C18.0106 10.0087 16.3615 11.6788 15.2162 13.6827C14.0707 15.6866 13.4687 17.955 13.4695 20.2631V33.5206C16.9506 33.4669 20.271 32.0465 22.7135 29.566C25.1562 27.0856 26.525 23.7441 26.5246 20.2631Z" fill="#BD7CFF"/></symbol>
+</svg>
+
+<div class="grade">
+
+  <!-- ======================================================================
+       COLE AQUI OS POSTS, na ordem do roteiro (carrossel = na ordem em que sobem).
+       Fonte: design-system/post/posts/
+       Cada arquivo de lá é um <style> + <section class="post"> completo.
+       Exportar: python3 -I scripts/exportar.py png saida/<slug>/index.html
+       ====================================================================== -->
+
+</div>
+</body>
+</html>
